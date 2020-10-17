@@ -3,6 +3,8 @@
 \usepackage{titlesec}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{pdfpages}
+\usepackage{amssymb}
+\newcommand{\qed}{\\\ensuremath{\\\blacksquare}}
 \titlelabel{\thetitle.\quad}
 
 % Document
@@ -25,25 +27,27 @@ In order to show that $S$ is a field, we'll need to prove the following \textit{
 \end{enumerate}
 In addition, the mentioned binary operators should satisfy the following properties, referred to as \textit{\textbf{field axioms}}:
 \begin{enumerate}
-    \item Associativity of addition and multiplication:
-        $$ a+(b+c)=(a+b)+c  $$
-        $$ a\cdot(b\cdot{c})=(a\cdot{b})\cdot{c}  $$
-    \item Commutativity of addition and multiplication:
+    \item Associativity of addition(A1) and multiplication(M1):
+        $$ a+(b+c)=(a+b)+c $$
+        $$ a\cdot(b\cdot{c})=(a\cdot{b})\cdot{c} $$
+    \item Commutativity of addition(A2) and multiplication(M2):
         $$ a+b = b+a $$
         $$ a\cdot{b} = b\cdot{a} $$
-    \item Additive and multiplicative identity
+    \item Additive identity(A3) and multiplicative identity(M3)
         $$ a+0=a $$
         $$ a\cdot{1}=a $$
-    \item Additive and multiplicative inverses 
+    \item Additive inverse(A4) and multiplicative inverse(M4)
         $$ a + (-a) = 0 $$
         $$ a \cdot a^-1 = 1 $$
-    \item Distributivity
+    \item Distributivity(D)
         $$ a(b + c) = (a \cdot{b})+(a \cdot{c}) $$
 \end{enumerate}
 \pagebreak
 
-%2
+% 2
 \section{}
+Prove: $ ((a + b) + c) + d = (a + b) + (c + d) = a + (b + (c + d)) $
+\qed
 
 
 \end{document}
