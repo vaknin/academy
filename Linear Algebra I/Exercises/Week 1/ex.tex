@@ -10,18 +10,16 @@
 
 % Custom commands
 \newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\?}{\stackrel{?}{=}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
 \renewcommand{\qed}{\ensuremath{\blacksquare\pagebreak}}
 \renewcommand{\b}[1]{\textbf{#1}}
 \renewcommand{\because}[1]{~\b{(#1)}\\}
 \renewcommand{\d}{\ensuremath{\Downarrow\\~}}
 
-% Set section point after number
-\usepackage{titlesec}
-\titlelabel{\thetitle.\quad}
-
 % Begin Document %
 \begin{document}
-
 
 % Title Page
 \begin{titlepage}
@@ -134,25 +132,82 @@ $
 \qed
 
 % 7
-\section{$ A=\bigg{\{} \dbinom{1}{a} \bigg{|} a\in{\mathbb{R} }\bigg{\}} $}
-\sub{Does A have a neutral additive member?}
-$
-    \dbinom{1}{a} \oplus \dbinom{1}{0} = \dbinom{1}{a+0} \\
-    \dbinom{1}{a+0} = \dbinom{1}{a} \because{A3}
-    \d
-    0_{A} = \dbinom{1}{0}
-$
-
-\sub{Does A have a neutral multiplicative member?}
-$
-    \dbinom{1}{a} \odot \dbinom{1}{1} = \dbinom{1}{a \cdot{1}} \\
-    \dbinom{1}{a \cdot{1}} = \dbinom{1}{a} \because{M3}
-    \d
-    1_{A} = \dbinom{1}{1}
-$
-
-\sub{Is A a field?}
-
+\section{$ A=\bigg{\{} \dbinom{1}{a} \bigg{|} a\in{\R}\bigg{\}} $}
+    \sub{Does A have a neutral additive member?}
+    $
+        \dbinom{1}{a} \oplus \dbinom{1}{0} = \dbinom{1}{a+0} \\
+        \dbinom{1}{a+0} = \dbinom{1}{a} \because{A3}
+        \d
+        0_{A} = \dbinom{1}{0}
+    $
+    \sub{Does A have a neutral multiplicative member?}
+    $
+        \dbinom{1}{a} \odot \dbinom{1}{1} = \dbinom{1}{a \cdot{1}} \\
+        \dbinom{1}{a \cdot{1}} = \dbinom{1}{a} \because{M3}
+        \d
+        1_{A} = \dbinom{1}{1}
+    $
+    \sub{Is A a field?}
+        \subsub{A1 - Additive Associativity}
+        $
+            \bigg{[}\dbinom{1}{a}\oplus{}\dbinom{1}{b}\bigg{]}\oplus{}\dbinom{1}{c} \? \dbinom{1}{a} \oplus{} \bigg{[}\dbinom{1}{b}\oplus{}\dbinom{1}{c}\bigg{]} \\
+            \dbinom{1}{a+b}\oplus{}\dbinom{1}{c} \? \dbinom{1}{a} \oplus{} \dbinom{1}{b+c} \\
+            \dbinom{1}{a+b+c} = \dbinom{1}{a+b+c} \\
+            \d
+            \bigg{[}\dbinom{1}{a}\oplus{}\dbinom{1}{b}\bigg{]}\oplus{}\dbinom{1}{c} = \dbinom{1}{a} \oplus{} \bigg{[}\dbinom{1}{b}\oplus{}\dbinom{1}{c}\bigg{]}
+        $
+        \pagebreak
+        \subsub{M1 - Multiplicative Associativity}
+        $
+            \bigg{[}\dbinom{1}{a}\odot{}\dbinom{1}{b}\bigg{]}\odot{}\dbinom{1}{c} \? \dbinom{1}{a} \odot{} \bigg{[}\dbinom{1}{b}\odot{}\dbinom{1}{c}\bigg{]} \\
+            \dbinom{1}{ab}\odot{}\dbinom{1}{c} \? \dbinom{1}{a} \odot{} \dbinom{1}{bc} \\
+            \dbinom{1}{abc} = \dbinom{1}{abc} \\
+            \d
+            \bigg{[}\dbinom{1}{a}\odot{}\dbinom{1}{b}\bigg{]}\odot{}\dbinom{1}{c} = \dbinom{1}{a} \odot{} \bigg{[}\dbinom{1}{b}\odot{}\dbinom{1}{c}\bigg{]}
+        $
+        \subsub{A2 - Additive Commutativity}
+        $
+            \dbinom{1}{a} \oplus \dbinom{1}{b} \? \dbinom{1}{b} \oplus \dbinom{1}{a} \\
+            \dbinom{1}{a+b} \? \dbinom{1}{b+a} \\
+            \dbinom{1}{a+b} = \dbinom{1}{b+a} \because{A2: In A, $a\in\R$}
+            \d
+            \dbinom{1}{a} \oplus \dbinom{1}{b} = \dbinom{1}{b} \oplus \dbinom{1}{a}
+        $
+        \subsub{M2 - Multiplicative Commutativity}
+        $
+            \dbinom{1}{a} \odot \dbinom{1}{b} \? \dbinom{1}{b} \odot \dbinom{1}{a} \\
+            \dbinom{1}{ab} \? \dbinom{1}{ba} \\
+            \dbinom{1}{ab} = \dbinom{1}{ba} \because{M2: In A, $a\in\R$}
+            \d
+            \dbinom{1}{a} \odot \dbinom{1}{b} = \dbinom{1}{b} \odot \dbinom{1}{a}
+        $
+        \subsub{A3 - Additive Identity}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\oplus\dbinom{1}{b}=\dbinom{1}{a}? \\
+            \dbinom{1}{a}\oplus\dbinom{1}{0}=\dbinom{1}{a+0}=\dbinom{1}{a} \because{A3: In A, $a\in\R$}
+            \d
+            \dbinom{1}{0} = 0_{A}
+        $
+        \pagebreak
+        \subsub{M3 - Multiplicative Identity}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\odot\dbinom{1}{b}=\dbinom{1}{a}? \\
+            \dbinom{1}{a}\odot\dbinom{1}{1}=\dbinom{1}{1a}=\dbinom{1}{a} \because{M3: In A, $a\in\R$}
+            \d
+            \dbinom{1}{1} = 1_{A}
+        $
+        \subsub{A4 - Additive Inverse}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\oplus\dbinom{1}{b}=0_{A}? \\
+            \dbinom{1}{a}\oplus\dbinom{1}{-a}=\dbinom{1}{a+(-a)}=\dbinom{1}{0}=0_{A} \because{A4: In A, $a\in\R$}
+        $
+        \subsub{M4 - Multiplicative Inverse}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\odot\dbinom{1}{b}=1_{A}? \\
+            \dbinom{1}{a}\odot\dbinom{1}{\frac{1}{a}}=\dbinom{1}{a\cdot{\frac{1}{a}}} \\
+            \dbinom{1}{a\cdot{\frac{1}{a}}} = \dbinom{1}{\frac{a}{a}} \\
+            \dbinom{1}{\frac{a}{a}} = \dbinom{1}{1} = 1_{A} \\
+        $
 
 % End Document %
 \end{document}
