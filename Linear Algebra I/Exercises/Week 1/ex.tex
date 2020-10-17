@@ -1,10 +1,13 @@
 % Preamble
 \documentclass[a4paper, 12pt]{article}
 \usepackage{titlesec}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{pdfpages}
 \usepackage{amssymb}
-\newcommand{\qed}{\\\ensuremath{\\\blacksquare}}
+\newcommand{\qed}{\\\ensuremath{\\\blacksquare\pagebreak}}
+\renewcommand{\b}[1]{\textbf{#1}}
+\newcommand{\axiom}[1]{~\b{(Axiom #1)}}
+\renewcommand{\d}{\\\ensuremath{\Downarrow\\~}}
 \titlelabel{\thetitle.\quad}
 
 % Document
@@ -17,7 +20,7 @@
 \end{titlepage}
 
 % 1
-\section{}
+\section{What requirements S must fullfil in order to become a field?}
 In order to show that $S$ is a field, we'll need to prove the following \textit{\textbf{binary operator}} properties:
 \begin{enumerate}
     \item In $S$, there are two members, zero - $0_S$ and one - $1_S$
@@ -45,9 +48,39 @@ In addition, the mentioned binary operators should satisfy the following propert
 \pagebreak
 
 % 2
-\section{}
-Prove: $ ((a + b) + c) + d = (a + b) + (c + d) = a + (b + (c + d)) $
+\section{Prove: $ ((a + b) + c) + d = (a + b) + (c + d) = a + (b + (c + d)) $}
+\subsection{$ \underline{((a+b)+c)+d=(a+b)+(c+d)}: $}
+let $h=(a+b)$\\
+$(h+c)+d=((a+b)+c)+d$\\
+$(h+c)+d = h+(c+d)$ \textbf{(Axiom A1)}\\
+$ h+(c+d) = (a+b)+(c+d) $
+\d
+$((a+b)+c)+d=(a+b)+(c+d)$
+\subsection{$ \underline{ a+(b+(c+d))=(a+b)+(c+d) }: $}
+let $h=(c+d)$\\
+$ a+(b+h) = a+(b+(c+d)) $\\
+$ a+(b+h) = (a+b)+h $ \textbf{(Axiom A1)}\\
+$ (a+b)+h = (a+b)+(c+d) $
+\d
+$ a+(b+(c+d)) = (a+b)+(c+d) $
 \qed
 
+% 3
+\section{Prove: $ \forall{x,y}\in{F},~x(y-z) = xy-xz $}
+$ x(y-z) = x(y+(-z)) $ \textbf{(Axiom A1)}\\
+$ x(y+(-z)) = (x\cdot{y})+(x\cdot(-z))$ \textbf{(Axiom D)}\\
+$ (x\cdot{y})+(x\cdot(-z)) = (x\cdot{y})+(-x\cdot{z})) = (x\cdot{y})-(x\cdot{z})) $\\
+$ (x\cdot{y})-(x\cdot{z})) = xy - xz $
+\qed
+
+% 4
+\section{Prove: $ \forall{x,y}\in{F},~ (x+y)(x+y) = xx + xy + yx + yy $}
+let $ h=(x+y) $\\
+$
+    (x+y)(x+y) = h\cdot(x+y)\\
+    h\cdot(x+y) = (x\cdot{h})+(y\cdot{h}) = x(x+y) + y(x+y) \axiom{D}\\
+    x(x+y) + y(x+y) = \b{xx + xy + yx + yy} \axiom{D}
+$
+\qed
 
 \end{document}
