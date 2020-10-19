@@ -4,10 +4,6 @@
 \usepackage{pdfpages} % Insert pdf pages
 \usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
 
-% Line spacing
-\usepackage{setspace}
-\setstretch{1.4}
-
 % Custom commands
 \newcommand{\sub}[1]{\subsection{\underline{#1}}}
 \newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
@@ -15,7 +11,7 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\F}{\ensuremath{\mathbb{F}}}
 \newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
-\renewcommand{\qed}{\ensuremath{\hfill\blacksquare\pagebreak}}
+\renewcommand{\qed}{$$\blacksquare$$}
 \renewcommand{\b}[1]{\textbf{#1}}
 \renewcommand{\because}[1]{~\b{(#1)}\\}
 \renewcommand{\d}{\ensuremath{\Downarrow\\~}}
@@ -43,6 +39,47 @@ because we haven't received any information about $x$'s value.
     \textit{i})\\
         Statement: $$ \forall{n}\in{\F} ~~ \exists{m}\in{\F} ~\big{|}~ n=m+m $$
         Negated Statement: $$ \exists{n}\in{\F} ~~ \forall{m}\in{\F} ~\big{|}~ n\neq m+m $$
+
+\section{}
+\textit{i} is the formal representation of a field's additive inverse axiom, i.e. A4.\\
+On the other hand, \textit{ii} states that in the field \F, there's a certain number, $x$,
+that if we'll add it to \b{any} other number in \F, we'll receive $0_{\F}$.\\
+The two statements are \b{not} logically equal.
+\pagebreak
+
+\section{}
+\sub{Prove $\forall~a,b \in{\F}~ -(a-b)=(b-a)$}
+First, let's find $(a-b)$'s inverse: $$ (a-b)+x=0 $$
+We'll add $(b-a)$ to both sides of the equation: $$ (a-b)+(b-a)+x=(b-a) $$
+And find the inverse: $$ x = (b-a) $$
+Now, we can easily see that $(a-b)$ and $(b-a)$ are the inverses of each other.\\
+And due to the additive inverse axiom (A4) : $$ -(a-b) = x = (b-a) $$
+\qed
+
+\sub{Prove the 'uniquness of multiplicitive inverse' property}
+It is given that $ab, ac=1_{\F}$, and we need to prove that $b=c=a^{-1}$.
+\subsub{$ab=1_{\F}$}
+According to the multiplicitive inverse property (M4), we can deduct:
+$$ b=a^{-1} $$
+\subsub{$ac=1_{\F}$}
+Exactly as above (M4), we can deduct:
+$$ c=a^{-1} $$
+Therefore, we can conclude: $$ b=c=a^{-1} $$
+\qed
+\pagebreak
+
+\section{$H$ is a set that satisfies all of the field axioms,\\
+$H \neq \text{\O}$, $1_H=0_H$\\
+Prove that $H$ contains only a single member.}
+Adding two $0_H$ should result in a $0_H$, due to axiom A3: $$ 0_H + 0_H = 0_H $$
+However, because $1_H=0_H$, it also means that: $$ 1_H + 1_H = 0_H $$
+Because of that, we can conculde that no other members exist in $H$, except $1_H=0_H$
+\qed
+
+\section{\F~is an ordered field, prove the following:}
+
+\sub{$\forall{x,y} \in{\F}~ 0_{\F}<x<y \iff 0_{\F}<y^{-1}<x^{-1} $}
+\subsub{$\forall{x,y} \in{\F}~ 0_{\F}<x<y \Longrightarrow 0_{\F}<y^{-1}<x^{-1} $:}
 
 
 % End
