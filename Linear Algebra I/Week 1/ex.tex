@@ -258,6 +258,7 @@ $
         $$ \dbinom{1a}{1b} = \dbinom{a}{b} $$ 
         Therefore:
         $$ \dbinom{1}{1} = 1_{B} $$
+        This answers (\textit{ii}).
 
     \sub{A4 - Additive Inverse}
         Now, let us find if exists a member, $\dbinom{c}{d} \in{B}$, for any other member $\dbinom{a}{b} \in{B}$, so that:
@@ -266,6 +267,7 @@ $
         $$\dbinom{a}{b}\oplus\dbinom{-a}{-b} = \dbinom{a+(-a)}{b+(-b)} $$
         As $a,b \in {\R}$, we can use axiom A4 to find the sum's value:
         $$ \dbinom{a+(-a)}{b+(-b)} =\dbinom{0}{0}=0_{B} $$
+        This answers (\textit{i}).
         \pagebreak
 
     \sub{M4 - Multiplicative Inverse}
@@ -288,8 +290,22 @@ $
     We use $B$'s binary multiplicative operator: $$ \dbinom{a}{b} \odot \dbinom{c+e}{d+f} = \dbinom{a(c+e)}{b(d+f)} $$
     As $a,b,c,d,e,f \in {\R}$, we can use the distributivity axiom to unpack:
     $$ \dbinom{a(c+e)}{b(d+f)} = \dbinom{ac+ae}{bd+bf} = \dbinom{ac}{bd} \oplus \dbinom{ae}{bf} $$
+    This answers (\textit{iii}).
     \qed
     \pagebreak
+
+\setcounter{section}{22}
+\section{Prove $-(a+b)=(-a)+(-b)=-a-b$:}
+According to axiom \textit{A4}: $$ -(a+b) + (a+b) = 0$$
+Now, let's add $-a-b$ to both sides of the equation: $$ -(a+b)+(a+b)-a-b=-a-b $$
+And use axioms \textit{A1} and \textit{A2}: $$ -(a+b)+(a+(-a))+(b+(-b))=-a-b $$
+According to axiom \textit{A4}: $$ -(a+b)+(0)+(0)=-a-b $$
+And according to axiom \textit{A3} and the definition of deduction: $$ -(a+b)=-a-b=(-a)+(-b) $$
+\qed
+
+\setcounter{section}{25}
+\section{Prove $ (-a)(-b) = ab $:}
+
 
 % End Document %
 \end{document}
