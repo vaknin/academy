@@ -305,6 +305,51 @@ And according to axiom \textit{A3} and the definition of deduction: $$ -(a+b)=-a
 
 \setcounter{section}{25}
 \section{Prove $ (-a)(-b) = ab $:}
+According to multiplicative identity axiom: $$ (-a)(-b) = ((-1)\cdot{a})((-1)\cdot{b}) $$
+According to multiplicative commutativity axiom: $$ ((-1)\cdot{a})((-1)\cdot{b}) = (-1)\cdot(-1)\cdot{a}\cdot{b} $$
+And multiplicative identity axiom again: $$ (-1)\cdot(-1)\cdot{a}\cdot{b} = 1 \cdot{a} \cdot{b} = ab $$
+\qed\pagebreak
+
+\setcounter{section}{29}
+\section{Prove $a\neq{0} \Longrightarrow 0/a=0$:}
+\sub{Lemma: $ a\cdot{0} = 0 $}
+According to the distributivity and multiplicative identity axioms: $$ a\cdot{0}+a = a(0+1) = a\cdot{1} = a $$
+Therefore: $$ a\cdot{0}+a = a $$
+We'll subtract $a$ from both sides of the equation: $$ a\cdot{0} + a - a = a - a $$
+$$ a\cdot{0} = 0 $$
+\qed
+
+\sub{$a\neq{0} \Longrightarrow 0/a=0$}
+According to the definition of division: $$ 0/a = 0\cdot{a^{-1}} $$
+According to the lemma: $$ 0\cdot{a^{-1}} = 0 $$
+\qed
+
+\setcounter{section}{36}
+\section{Solve in \R:$$ \sum_{i=1}^{53}{(-1)^i} $$}
+We can notice that 53 is an odd number, and therefore $(-1)$ is multiplied by itself an odd number of times.\\
+Therefore, we can say that the following two are identical: $$ \sum_{i=1}^{53}{(-1)^i} = \sum_{i=1}^{1}{(-1)^i} = -1 $$
+\qed\pagebreak
+
+\section{Solve in \R:$$ \sum_{k=3}^{20}{[k\cdot{k}-(k-1)\cdot(k-1)]} $$}
+First, let's understand this by solving: $$ \sum_{k=3}^{4}{[k\cdot{k}-(k-1)\cdot(k-1)]} $$
+$$ \sum_{k=3}^{4}{[k\cdot{k}-(k-1)\cdot(k-1)]} = 4^2 -3^2 + 3^2 -2^2  = 4^2 - 2^2$$
+Therefore, we can extrapolate:
+$$ \sum_{k=3}^{20}{[k\cdot{k}-(k-1)\cdot(k-1)]} = 20^2 - 2^2$$
+\qed
+
+\setcounter{section}{48}
+\section{$$ a_1X_1 +  a_2X_2+ a_3X_3 = b$$}
+\sub{$(1,1,2,1)$:}
+Apply the coefficients:
+$$ X_1 +  X_2+ 2X_3 = b $$
+Change the equation to a single variable equation:
+$$ X_1 =b - t_1 - 2t_2 $$
+Or:
+$$ c = X_2+ 2X_3 $$
+$$ X_1 = b - (X_2 + 2X_3) = b - c$$
+
+
+
 
 
 % End Document %
