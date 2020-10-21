@@ -68,6 +68,7 @@ Therefore, we can conclude: $$ b=c=a^{-1} $$
 \qed
 \pagebreak
 
+% 4
 \section{$H$ is a set that satisfies all of the field axioms,\\
 $H \neq \text{\O}$, $1_H=0_H$\\
 Prove that $H$ contains only a single member.}
@@ -76,10 +77,34 @@ However, because $1_H=0_H$, it also means that: $$ 1_H + 1_H = 0_H $$
 Because of that, we can conculde that no other members exist in $H$, except $1_H=0_H$
 \qed
 
+% 5
 \section{\F~is an ordered field, prove the following:}
 
+%5.1
 \sub{$\forall{x,y} \in{\F}~ 0_{\F}<x<y \iff 0_{\F}<y^{-1}<x^{-1} $}
-\subsub{$\forall{x,y} \in{\F}~ 0_{\F}<x<y \Longrightarrow 0_{\F}<y^{-1}<x^{-1} $:}
+\subsub{$0_{\F}<x<y ~\Longrightarrow~ 0_{\F}<y^{-1}<x^{-1} $:}
+It is given that: $$ x<y $$
+We'll multiple both sides of the inequality by 1, using axiom \textit{M4}: $$ xyy^{-1}<yxx^{-1} $$
+It is given that $x,y > 0$ therefore we can divide the equation by $xy$: $$ y^-1 < x^-1 $$
+\subsub{$0_{\F}<x<y ~\Longleftarrow~ 0_{\F}<y^{-1}<x^{-1} $:}
+It is given that: $$ y^{-1}<x^{-1} $$
+We'll multiple both sides of the inequality by 1, using axiom \textit{M4}: $$ y^{-1}xx^{-1}<x^{-1}yy^{-1} $$
+It is given that $x^-1,y^-1 > 0$ therefore we can divide the equation by $x^-1y^-1$: $$ x<y $$
+\qed\pagebreak
+
+%5.2
+\sub{$ x,y,z,w \in \F \big{|}~ x<y,~z\leq{w} ~\Longrightarrow~ x+z<y+w$}
+It is given that: $$ x<y $$
+We'll add $(z+w)$ to both sides, according to axiom \textit{O3}: $$ x+(z+w) < y+(z+w) $$
+According to axiom \textit{A1}, we'll rearrange the inequality: $$ (x+z)+w < (y+w)+z $$
+It is given that $z \leq w$, therefore if we'll remove $w$ from the left side,
+and $z$ from the right side, the inequality should remain correct:
+$$ x+z < y+w $$
+\qed
+
+%5.3
+\sub{$ \forall{x,y} \in{\F}~ (0_{\F}<xy) \iff ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))  $}
+\subsub{$ 0_{\F}<xy \Longrightarrow ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))$:}
 
 
 % End
