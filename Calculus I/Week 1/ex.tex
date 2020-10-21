@@ -100,11 +100,46 @@ According to axiom \textit{A1}, we'll rearrange the inequality: $$ (x+z)+w < (y+
 It is given that $z \leq w$, therefore if we'll remove $w$ from the left side,
 and $z$ from the right side, the inequality should remain correct:
 $$ x+z < y+w $$
-\qed
+\qed\pagebreak
 
 %5.3
 \sub{$ \forall{x,y} \in{\F}~ (0_{\F}<xy) \iff ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))  $}
 \subsub{$ 0_{\F}<xy \Longrightarrow ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))$:}
+Due to the ordered field's trichotomy axiom, $x,y$ must be $>0$ or $<0$, 
+it is known that $xy>0$ and therefore $x,y \neq 0$ (as proven before).\\
+If $x>0$: $$ xy > 0 $$
+Let's divide by x: $$ y > 0 $$
+Else, if $x<0$: $$ xy > 0 $$
+If we divide by x, the $>$ will change to a $<$, as proven previously in exercise 2.5: $$ y < 0 $$
+Therefore, we can see that if $xy>0$, $x,y>0$ or $x,y<0$ must be true.
+
+\subsub{$ 0_{\F}<xy \Longleftarrow ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))$:}
+First, let's assume that $0_{\F} < x \land 0_{\F}<y$: $$x > 0 $$
+According to ordered field's axiom 4, we can multiply both sides of the inequality by $y$: $$ xy > 0 $$
+Now, let's assume that $0_{\F} > x \land 0_{\F}>y $: $$x < 0 $$
+If we multiply both sides of the equation by y(which is negative), the inequality will change signs: $$ xy > 0 $$
+\qed\pagebreak
+
+\sub{Prove:}
+$$ 0<b\in{\F}~~\forall{a}\in{\F}~~a^2<b^2 \Longrightarrow -b<a<b $$
+Due to the ordered field's trichotomy axiom, $a$ is one of the following:
+\begin{itemize}
+    \item $a<0$
+    \item $a=0$
+    \item $a>0$
+\end{itemize}
+
+\subsub{$a=0$:}
+$$ b>0 $$
+Using the ordered field's O3 axiom: $$ b-b > -b $$
+And the additive inverse identity axiom: $$ 0 > -b $$
+In addition: $$ a^2<b^2 \Longrightarrow a<b $$
+Now, according to transitivity: $$ -b < 0 = a < b $$
+
+\subsub{$a>0$:}
+$$ a^2<b^2 \Longrightarrow a<b $$
+We'll multiply the result by (-1), and the inequality signs will change accordingly:
+$$ -a>-b $$
 
 
 % End
