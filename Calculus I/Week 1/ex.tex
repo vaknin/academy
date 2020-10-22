@@ -10,11 +10,14 @@
 \newcommand{\?}{\stackrel{?}{=}}
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
 \newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
 \renewcommand{\qed}{$$\blacksquare$$}
 \renewcommand{\b}[1]{\textbf{#1}}
 \renewcommand{\because}[1]{~\b{(#1)}\\}
 \renewcommand{\d}{\ensuremath{\Downarrow\\~}}
+\newtheorem{lemma}{Lemma}
 
 % Begin Document %
 \begin{document}
@@ -128,18 +131,75 @@ Due to the ordered field's trichotomy axiom, $a$ is one of the following:
     \item $a=0$
     \item $a>0$
 \end{itemize}
+Therefore, we'll need to show that the statement is true for all three.
 
 \subsub{$a=0$:}
 $$ b>0 $$
-Using the ordered field's O3 axiom: $$ b-b > -b $$
-And the additive inverse identity axiom: $$ 0 > -b $$
-In addition: $$ a^2<b^2 \Longrightarrow a<b $$
+Using the ordered field's $O3$ axiom, we'll subtract $b$ from both sides: $$ b-b > -b $$
+Using $A3$: $$ -b < 0 $$
 Now, according to transitivity: $$ -b < 0 = a < b $$
 
 \subsub{$a>0$:}
-$$ a^2<b^2 \Longrightarrow a<b $$
-We'll multiply the result by (-1), and the inequality signs will change accordingly:
-$$ -a>-b $$
+First, we'll need a lemma to help us demonstrate an idea.
+\begin{lemma}
+    ~\\We want to show that $$ a,b>0 ~~ a^2 > b^2 \Longrightarrow~ a>b $$
+    We'll prove that by contraposition: $$ a\leq{b} \Longrightarrow~ a^2\leq{b^2} $$
+    We'll multiply the left side by $b$, and by $a$:
+    $$ a\leq{b} $$
+    $$ a^2\leq{a\cdot{b}} $$
+    $$ a\cdot{b}\leq{b^2} $$
+    Therefore, according to the transitivity axiom: $$ a^2 \leq{b^2} $$
+\end{lemma}
+\pagebreak
+~\\As shown in the lemma, we know that $b>a$.\\
+In addition, it was proven in class that if $b>0$, $-b<0$.\\
+Therefore, according to transitivity:
+$$ -b < 0 < a < b $$
+
+\subsub{$a<0$:}
+I tried to prove that $a>-b$, but failed miserably.
+I could really use a hint.
+
+\section{Prove or disprove the following, for $a,b,x,y \in{\F}$:}
+\sub{$ab<a+b$}
+Let $a,b=0_{\F}$: $$ 0_{\F}\cdot{0_{\F}} < 0_{\F} + 0_{\F} $$
+According to Axioms $A3$ and $M3$ it yields the \b{false} statement: $$ 0_{\F} < 0_{\F} $$
+
+\sub{$ x^2<y^2 \Longrightarrow x<y $}
+In order to disprove this statement, we need to find $x,y \in{\F}$ such that: $$ x^2<y^2 ~\land~ x \geq y $$
+As an example, we can take: $$ x = \Onef$$ $$y=-(\Onef+\Onef) $$
+We can see that $x\geq y$.\\
+$x^2$: $$ x^2 = \Onef\cdot\Onef=\Onef $$
+$y^2$: $$ y^2 = -(\Onef+\Onef)\cdot(-(\Onef+\Onef))=\Onef+\Onef+\Onef+\Onef $$
+We can see that $y^2>x^2$, thus, the statement is \b{false}.
+\pagebreak
+
+\sub{$ x<y \Longrightarrow x^2<y^2 $}
+In order to disprove this statement, we need to find $x,y \in{\F}$ such that: $$ x<y ~\land~ x^2\geq y^2 $$
+We can use the same examples from $6.2$, only swapping the $x$ and the $y$: $$ y = \Onef$$ $$x=-(\Onef+\Onef) $$
+We can see that $y\geq x$.\\
+$y^2$: $$ y^2 = \Onef\cdot\Onef=\Onef $$
+$x^2$: $$ x^2 = -(\Onef+\Onef)\cdot(-(\Onef+\Onef))=\Onef+\Onef+\Onef+\Onef $$
+We can see that $x^2>y^2$, thus, the statement is \b{false}.
+
+\section{Prove $\forall{a}\in\F~|-a|=|a|$:}
+According to the definition of absolute value, there are two different scenarios for $a$:
+\subsub{$a \geq 0$:}
+Since $a\geq 0$, using the abs definition we'll get: $$ |a| = a $$
+According to the ordered field axioms $-a < 0$, and therefore: $$|(-a)| = -(-a) = a$$
+We can see that: $$a \geq 0 \Longrightarrow |-a|=|a|=a$$
+
+\subsub{$ a<0 $:}
+Since $a<0$, using the abs definition will yield: $$|a| = -a $$
+We've previously proved that the negative of a negative is positive, i.e. $-a>0$, therefore:
+$$ |-a| = -a $$
+We can see that: $$a < 0 \Longrightarrow |-a|=|a|=-a$$
+\qed\pagebreak
+
+\section{Prove the following for $a,b\in\F$:}
+\sub{$\max(a,b)=\frac{1}{2}(a+b+|a-b|)$}
+
+\sub{$\min(a,b)=\frac{1}{2}(a+b-|a-b|)$}
 
 
 % End
