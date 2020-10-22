@@ -24,7 +24,7 @@
 
 % Title Page
 \begin{titlepage}
-    %\includepdf{title.pdf}
+    \includepdf{title.pdf}
 \end{titlepage}
 
 \section{}
@@ -198,9 +198,50 @@ We can see that: $$a < 0 \Longrightarrow |-a|=|a|=-a$$
 
 \section{Prove the following for $a,b\in\F$:}
 \sub{$\max(a,b)=\frac{1}{2}(a+b+|a-b|)$}
+This splits into three different cases:
+\begin{itemize}
+    \item $a<b$
+    \item $a=b$
+    \item $a>b$
+\end{itemize}
+\subsub{$a<b$:}
+$$\max(a,b)=\frac{1}{2}(a+b+|a-b|)$$
+Since $a<b$, the term $|a-b|$ is equal to $b-a$, therefore:
+$$ \max(a,b)=\frac{1}{2}(a+b+|a-b|) = \frac{1}{2}(a+b+b-a) = \frac{1}{2}(2b) = b $$
+
+\subsub{$a=b$:}
+$$\max(a,b)=\frac{1}{2}(a+b+|a-b|)$$
+Since $a=b$, the term $|a-b|$ is equal to $0$, therefore:
+$$ \max(a,b)=\frac{1}{2}(a+b+0) = \frac{1}{2}(a+b) = \frac{a+b}{2} = a= b $$
+
+\subsub{$a>b$:}
+$$\max(a,b)=\frac{1}{2}(a+b+|a-b|)$$
+Since $a>b$, the term $|a-b|$ is equal to $a-b$, therefore:
+$$ \max(a,b)=\frac{1}{2}(a+b+|a-b|) = \frac{1}{2}(a+b+a-b) = \frac{1}{2}(2a) = a $$
+\pagebreak
 
 \sub{$\min(a,b)=\frac{1}{2}(a+b-|a-b|)$}
+This splits into three different cases:
+\begin{itemize}
+    \item $a<b$
+    \item $a=b$
+    \item $a>b$
+\end{itemize}
+\subsub{$a<b$:}
+$$\min(a,b)=\frac{1}{2}(a+b-|a-b|)$$
+Since $a<b$, the term $|a-b|$ is equal to $b-a$, therefore:
+$$ \min(a,b)=\frac{1}{2}(a+b-|a-b|) = \frac{1}{2}(a+b-(b-a)) = a$$
 
+\subsub{$a=b$:}
+$$\min(a,b)=\frac{1}{2}(a+b-|a-b|)$$
+Since $a=b$, the term $|a-b|$ is equal to $0$, therefore:
+$$ \min(a,b)=\frac{1}{2}(a+b-0) = \frac{1}{2}(a+b) = \frac{a+b}{2} = a = b $$
+
+\subsub{$a>b$:}
+$$\min(a,b)=\frac{1}{2}(a+b-|a-b|)$$
+Since $a>b$, the term $|a-b|$ is equal to $a-b$, therefore:
+$$ \min(a,b)=\frac{1}{2}(a+b-|a-b|) = \frac{1}{2}(a+b-(a-b)) = \frac{1}{2}(2b) = b $$
+\qed
 
 % End
 \end{document}
