@@ -157,8 +157,18 @@ Therefore, according to transitivity:
 $$ -b < 0 < a < b $$
 
 \subsub{$a<0$:}
-I tried to prove that $a>-b$, but failed miserably.
-I could really use a hint.
+One side of the inequality is easy to show: $$ b>0>a $$
+Now, we'll try to show that $-b<a$: $$ b^2 > a^2 $$
+We'll deduct $a^2$ from both sides, according to O3: $$ b^2 - a^2 > 0 $$
+Now, using distributivity: $$ (b+a)(b-a) > 0 $$
+We can see that there are two possible scenarios where this inequality is true:
+$$ (b+a) > 0 \land (b-a) > 0 $$
+$$ (b+a) < 0 \land (b-a) < 0 $$
+However, because $b>a$, we can tell that the second scenario cannot happen, therefore:
+$$ b-a > 0 $$
+$$ b+a > 0 $$
+Therefore we can show that: $$ a > -b $$
+\qed
 
 \section{Prove or disprove the following, for $a,b,x,y \in{\F}$:}
 \sub{$ab<a+b$}
