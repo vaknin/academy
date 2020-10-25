@@ -25,8 +25,35 @@
     \includepdf{title.pdf}
 \end{titlepage}
 
+% 1
+\section{What requirements S must fullfil in order to become a field?}
+    In order to show that $S$ is a field, we'll need to prove the following \textit{\textbf{binary operator}} properties:
+    \begin{enumerate}
+        \item In $S$, there are two members, zero - $0_S$ and one - $1_S$
+        \item $S$ supports the addition and multiplication binary operators
+        \item Every member in $S$ can be negated, i.e. for every $x$ there is $-x$
+        \item For every member in $S$ that is not $0_S$, $\exists{x^{-1}}\in{S}$, it is called the multiplicative inverse of $x$
+    \end{enumerate}
+    In addition, the mentioned binary operators should satisfy the following properties, referred to as \textit{\textbf{field axioms}}:
+    \begin{enumerate}
+        \item Associativity of addition(A1) and multiplication(M1):
+            $$ a+(b+c)=(a+b)+c $$
+            $$ a\cdot(b\cdot{c})=(a\cdot{b})\cdot{c} $$
+        \item Commutativity of addition(A2) and multiplication(M2):
+            $$ a+b = b+a $$
+            $$ a\cdot{b} = b\cdot{a} $$
+        \item Additive identity(A3) and multiplicative identity(M3)
+            $$ a+0=a $$
+            $$ a\cdot{1}=a $$
+        \item Additive inverse(A4) and multiplicative inverse(M4)
+            $$ a + (-a) = 0 $$
+            $$ a \cdot a^-1 = 1 $$
+        \item Distributivity(D)
+            $$ a(b + c) = (a \cdot{b})+(a \cdot{c}) $$
+    \end{enumerate}
+\pagebreak
+
 % 2
-\setcounter{section}{1}
 \section{Prove: $ ((a + b) + c) + d = (a + b) + (c + d) = a + (b + (c + d)) $}
 
 \sub{$((a+b)+c)+d=(a+b)+(c+d)$:}
@@ -47,8 +74,151 @@ $$\d$$
 $$ a+(b+(c+d)) = (a+b)+(c+d) $$
 \qed
 
+% 3
+\section{Prove: $ \forall{x,y}\in{F},~x(y-z) = xy-xz $}
+$ x(y-z) = x(y+(-z)) $\because{A1}
+$ x(y+(-z)) = (x\cdot{y})+(x\cdot(-z))$\because{D}
+$ (x\cdot{y})+(x\cdot(-z)) = (x\cdot{y})+(-x\cdot{z})) = (x\cdot{y})-(x\cdot{z})) $\\
+$ (x\cdot{y})-(x\cdot{z})) = xy - xz $\\
+\qed
+
+% 4
+\section{Prove: $ \forall{x,y}\in{F},~ (x+y)(x+y) = xx + xy + yx + yy $}
+let $ h=(x+y) $
+$
+    (x+y)(x+y) = h\cdot(x+y)\\
+    h\cdot(x+y) = (x\cdot{h})+(y\cdot{h}) = x(x+y) + y(x+y) \because{D}
+    x(x+y) + y(x+y) = xx + xy + yx + yy \because{D}
+$
+\qed
+
+% 5
+\section{Prove: $ \forall{x,y}\in{F},~ (x+y)(x-y) = xx - yy $}
+
+$
+    (x+y)(x-y) = xx - xy + yx - yy \because{ex. 4}
+    xx - xy + yx - yy = xx + (-xy + yx) - yy \because{A1}
+    (-xy + yx) = (-xy + xy) \because{A2}
+    (-xy + xy) = 0 \because{A4}
+    \d
+    xx + (-xy + yx) - yy = xx + 0 - yy = xx - yy \because{A3}
+$
+\qed
+
+% 6
+\section{Prove: $ (a=b) \land (c=d) \Rightarrow (a+c=b+d) \land (ac=bd) $}
+
+\sub{$ (a=b) \land (c=d) \Rightarrow a+c=b+d $:}
+$
+    c=d=x \\
+    a=b \\
+    a+x=b+x \because{Consistency with addition}
+    a+x=a+c \because{x=c}
+    b+x=b+d \because{x=d}
+    \d
+    a+c=b+d\\
+$
+
+\sub{$ (a=b) \land (c=d) \Rightarrow ac=bd $:}
+$
+    c=d=x \\
+    a=b \\
+    ax=bx \because{Consistency with multiplication}
+    ax=ac \because{x=c}
+    bx=bd \because{x=d}
+    \d
+    ac=bd\\
+$
+\qed
+
+% 7
+\section{$ A=\bigg{\{} \dbinom{1}{a} \bigg{|} a\in{\R}\bigg{\}} $}
+    \sub{Does A have a neutral additive member?}
+    $
+        \dbinom{1}{a} \oplus \dbinom{1}{0} = \dbinom{1}{a+0} \\
+        \dbinom{1}{a+0} = \dbinom{1}{a} \because{A3}
+        \d
+        0_{A} = \dbinom{1}{0}
+    $
+    \sub{Does A have a neutral multiplicative member?}
+    $
+        \dbinom{1}{a} \odot \dbinom{1}{1} = \dbinom{1}{a \cdot{1}} \\
+        \dbinom{1}{a \cdot{1}} = \dbinom{1}{a} \because{M3}
+        \d
+        1_{A} = \dbinom{1}{1}
+    $
+    \sub{Is A a field?}
+        \subsub{A1 - Additive Associativity}
+        $
+            \bigg{[}\dbinom{1}{a}\oplus{}\dbinom{1}{b}\bigg{]}\oplus{}\dbinom{1}{c} \? \dbinom{1}{a} \oplus{} \bigg{[}\dbinom{1}{b}\oplus{}\dbinom{1}{c}\bigg{]} \\
+            \dbinom{1}{a+b}\oplus{}\dbinom{1}{c} \? \dbinom{1}{a} \oplus{} \dbinom{1}{b+c} \\
+            \dbinom{1}{a+b+c} = \dbinom{1}{a+b+c} \\
+            \d
+            \bigg{[}\dbinom{1}{a}\oplus{}\dbinom{1}{b}\bigg{]}\oplus{}\dbinom{1}{c} = \dbinom{1}{a} \oplus{} \bigg{[}\dbinom{1}{b}\oplus{}\dbinom{1}{c}\bigg{]}
+        $
+        \pagebreak
+        \subsub{M1 - Multiplicative Associativity}
+        $
+            \bigg{[}\dbinom{1}{a}\odot{}\dbinom{1}{b}\bigg{]}\odot{}\dbinom{1}{c} \? \dbinom{1}{a} \odot{} \bigg{[}\dbinom{1}{b}\odot{}\dbinom{1}{c}\bigg{]} \\
+            \dbinom{1}{ab}\odot{}\dbinom{1}{c} \? \dbinom{1}{a} \odot{} \dbinom{1}{bc} \\
+            \dbinom{1}{abc} = \dbinom{1}{abc} \\
+            \d
+            \bigg{[}\dbinom{1}{a}\odot{}\dbinom{1}{b}\bigg{]}\odot{}\dbinom{1}{c} = \dbinom{1}{a} \odot{} \bigg{[}\dbinom{1}{b}\odot{}\dbinom{1}{c}\bigg{]}
+        $
+        \subsub{A2 - Additive Commutativity}
+        $
+            \dbinom{1}{a} \oplus \dbinom{1}{b} \? \dbinom{1}{b} \oplus \dbinom{1}{a} \\
+            \dbinom{1}{a+b} \? \dbinom{1}{b+a} \\
+            \dbinom{1}{a+b} = \dbinom{1}{b+a} \because{A2: In A, $a\in\R$}
+            \d
+            \dbinom{1}{a} \oplus \dbinom{1}{b} = \dbinom{1}{b} \oplus \dbinom{1}{a}
+        $
+        \subsub{M2 - Multiplicative Commutativity}
+        $
+            \dbinom{1}{a} \odot \dbinom{1}{b} \? \dbinom{1}{b} \odot \dbinom{1}{a} \\
+            \dbinom{1}{ab} \? \dbinom{1}{ba} \\
+            \dbinom{1}{ab} = \dbinom{1}{ba} \because{M2: In A, $a\in\R$}
+            \d
+            \dbinom{1}{a} \odot \dbinom{1}{b} = \dbinom{1}{b} \odot \dbinom{1}{a}
+        $
+        \subsub{A3 - Additive Identity}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\oplus\dbinom{1}{b}=\dbinom{1}{a}? \\
+            \dbinom{1}{a}\oplus\dbinom{1}{0}=\dbinom{1}{a+0}=\dbinom{1}{a} \because{A3: In A, $a\in\R$}
+            \d
+            \dbinom{1}{0} = 0_{A}
+        $
+        \pagebreak
+        \subsub{M3 - Multiplicative Identity}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\odot\dbinom{1}{b}=\dbinom{1}{a}? \\
+            \dbinom{1}{a}\odot\dbinom{1}{1}=\dbinom{1}{1a}=\dbinom{1}{a} \because{M3: In A, $a\in\R$}
+            \d
+            \dbinom{1}{1} = 1_{A}
+        $
+        \subsub{A4 - Additive Inverse}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\oplus\dbinom{1}{b}=0_{A}? \\
+            \dbinom{1}{a}\oplus\dbinom{1}{-a}=\dbinom{1}{a+(-a)}=\dbinom{1}{0}=0_{A} \because{A4: In A, $a\in\R$}~
+        $
+        \subsub{M4 - Multiplicative Inverse}
+        $
+            \exists\dbinom{1}{a},\dbinom{1}{b}\in{A}\bigg{|}\dbinom{1}{a}\odot\dbinom{1}{b}=1_{A}? \\
+            \dbinom{1}{a}\odot\dbinom{1}{\frac{1}{a}}=\dbinom{1}{a\cdot{\frac{1}{a}}} \\
+            \dbinom{1}{a\cdot{\frac{1}{a}}} = \dbinom{1}{\frac{a}{a}} \\
+            \dbinom{1}{\frac{a}{a}} = \dbinom{1}{1} = 1_{A}
+        $
+        \subsub{D - Distributivity}
+        In order to display distributivity, we'll need to show the A equivalent of:
+        $$ a\cdot{(b+c)}=a\cdot{b}+a\cdot{c} $$
+        We need to prove: $ \dbinom{1}{a} \odot \bigg{[} \dbinom{1}{b} \oplus \dbinom{1}{c} \bigg{]} \? \dbinom{1}{ab} \oplus \dbinom{1}{ac} $ \\
+        A's Addition property: $ \dbinom{1}{a} \odot \bigg{[} \dbinom{1}{b} \oplus \dbinom{1}{c} \bigg{]} = \dbinom{1}{a} \odot \dbinom{1}{b+c} $ \\
+        A's Multiplication property: $ \dbinom{1}{a} \odot \dbinom{1}{b+c} = \dbinom{1}{a(b+c)} $ \\
+        Since A's bottom member of the pair $\in{\R}$, we'll use Axiom D:
+        $$ \dbinom{1}{a(b+c)} = \dbinom{1}{ab} \oplus \dbinom{1}{ac} $$
+        \qed\pagebreak
+
 % 8
-\setcounter{section}{7}
 \section{Is $B$ a field?}
     If $B$ fulfills all 9 field's axioms, $B$ is a field, let's check them one by one.
     \sub{A1 - Additive Associativity}

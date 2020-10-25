@@ -105,7 +105,7 @@ and $z$ from the right side, the inequality should remain correct:
 $$ x+z < y+w $$
 \qed\pagebreak
 
-%5.3
+%5.3.1
 \sub{$ \forall{x,y} \in{\F}~ (0_{\F}<xy) \iff ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))  $}
 \subsub{$ 0_{\F}<xy \Longrightarrow ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))$:}
 Due to the ordered field's trichotomy axiom, $x,y$ must be $>0$ or $<0$, 
@@ -116,6 +116,7 @@ Else, if $x<0$: $$ xy > 0 $$
 If we divide by x, the $>$ will change to a $<$, as proven previously in exercise 2.5: $$ y < 0 $$
 Therefore, we can see that if $xy>0$, $x,y>0$ or $x,y<0$ must be true.
 
+%5.3.2
 \subsub{$ 0_{\F}<xy \Longleftarrow ((x<0_{\F} \land y<0_{\F}) \lor (0_{\F} < x \land 0_{\F}<y))$:}
 First, let's assume that $0_{\F} < x \land 0_{\F}<y$: $$x > 0 $$
 According to ordered field's axiom 4, we can multiply both sides of the inequality by $y$: $$ xy > 0 $$
@@ -123,6 +124,7 @@ Now, let's assume that $0_{\F} > x \land 0_{\F}>y $: $$x < 0 $$
 If we multiply both sides of the equation by y(which is negative), the inequality will change signs: $$ xy > 0 $$
 \qed\pagebreak
 
+%5.4
 \sub{Prove:}
 $$ 0<b\in{\F}~~\forall{a}\in{\F}~~a^2<b^2 \Longrightarrow -b<a<b $$
 Due to the ordered field's trichotomy axiom, $a$ is one of the following:
@@ -168,8 +170,9 @@ However, because $b>a$, we can tell that the second scenario cannot happen, ther
 $$ b-a > 0 $$
 $$ b+a > 0 $$
 Therefore we can show that: $$ a > -b $$
-\qed
+\qed\pagebreak
 
+%6
 \section{Prove or disprove the following, for $a,b,x,y \in{\F}$:}
 \sub{$ab<a+b$}
 Let $a,b=0_{\F}$: $$ 0_{\F}\cdot{0_{\F}} < 0_{\F} + 0_{\F} $$
@@ -182,7 +185,6 @@ We can see that $x\geq y$.\\
 $x^2$: $$ x^2 = \Onef\cdot\Onef=\Onef $$
 $y^2$: $$ y^2 = -(\Onef+\Onef)\cdot(-(\Onef+\Onef))=\Onef+\Onef+\Onef+\Onef $$
 We can see that $y^2>x^2$, thus, the statement is \b{false}.
-\pagebreak
 
 \sub{$ x<y \Longrightarrow x^2<y^2 $}
 In order to disprove this statement, we need to find $x,y \in{\F}$ such that: $$ x<y ~\land~ x^2\geq y^2 $$
@@ -191,7 +193,9 @@ We can see that $y\geq x$.\\
 $y^2$: $$ y^2 = \Onef\cdot\Onef=\Onef $$
 $x^2$: $$ x^2 = -(\Onef+\Onef)\cdot(-(\Onef+\Onef))=\Onef+\Onef+\Onef+\Onef $$
 We can see that $x^2>y^2$, thus, the statement is \b{false}.
+\pagebreak
 
+%7
 \section{Prove $\forall{a}\in\F~|-a|=|a|$:}
 According to the definition of absolute value, there are two different scenarios for $a$:
 \subsub{$a \geq 0$:}
@@ -206,6 +210,7 @@ $$ |-a| = -a $$
 We can see that: $$a < 0 \Longrightarrow |-a|=|a|=-a$$
 \qed\pagebreak
 
+%8
 \section{Prove the following for $a,b\in\F$:}
 \sub{$\max(a,b)=\frac{1}{2}(a+b+|a-b|)$}
 This splits into three different cases:
