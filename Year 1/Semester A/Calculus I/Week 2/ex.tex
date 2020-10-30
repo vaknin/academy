@@ -27,7 +27,7 @@
 
 % Title Page
 \begin{titlepage}
-    %\includepdf{title.pdf}
+    \includepdf{title.pdf}
 \end{titlepage}
 
 %1
@@ -83,7 +83,6 @@ Therefore, we need to check if: \eq{\frac{n(n+1)(2n+1)}{6}+(n+1)^2=\frac{(n+1)(n
 And after solving each side, we receive: \eq{0=0}
 Therefore, we've proved that the statement is true for $n=n+1$.
 \qed
-
 \sub{Prove:}
 \eq{\sum^{n-1}_{i=0}x^{i}=\frac{\Onef-x^n}{\Onef-x}}
 \b{Note}: I'll use $\Onef$ and $1$ interchangeably while proving this.\\
@@ -110,10 +109,31 @@ Thus, we've proved that:
 \eq{ \sum^{k-1}_{i=0}x^{i} + x^k = \sum^{k}_{i=0}x^{i} }
 \qed
 
+%4
 \section{\eq{ m,n,s,t\in{\F}~~n,t>0}Prove: \eq{\frac{m}{n}<\frac{s}{t}\implies \frac{m}{n}<\frac{m+s}{n+t}<\frac{s}{t} }}
-?\pagebreak
+\begin{lemma}
+    We'll show that if $b,d>0$:
+    \eq{\frac{a}{b}>\frac{c}{d}\implies\frac{a}{b}>\frac{a+c}{b+d}}
+    It is given that: \eq{ab^{-1}>cd^{-1}}
+    We'll multiply both sides by $bd$ and then add $ab$:
+    \eq{
+        ad&>bc\\
+        ab+ad&>ab+bc
+    }
+    We'll pack using distributivity and then multiply by $b^{-1}(b+d)^{-1}$:
+    \eq{
+        &a(b+d)>b(a+c)\\
+        &ab^{-1}>(a+c)(b+d)^{-1}\\
+        &\frac{a}{b}>\frac{a+c}{b+d}
+        }
+    \qed
+\end{lemma}
+~\\Using \textit{Lemma 1}, and the fact that $n,t>0$: \eq{\frac{m+s}{n+t}<\frac{s}{t}}
+Similarly, \textit{Lemma 1} can be used in its mirrored form to show that: \eq{\frac{m}{n}<\frac{m+s}{n+t}}
+Therefore, according to transitivity: \eq{\frac{m}{n}<\frac{m+s}{n+t}<\frac{s}{t}}
+\qed
 
-%7
+%8
 \setcounter{section}{7}
 \section{\eq{ x,y\geq{0},~n\in{\N}} Prove: \eq{x<y \iff x^n<y^n }}
 \sub{$x<y \implies x^n<y^n$}
@@ -143,7 +163,7 @@ Let's assume it is true for $n=k$, that is:
 }
 According to our $n=k$ assumption:
 \eq{x^k<y^k}
-Therefore, because it is given that $x,y\geq{0}$, and \textit{Lemma 1}, we can show that:
+Therefore, because it is given that $x,y\geq{0}$, and \textit{Lemma 2}, we can show that:
 \eq{x^{k+1}=x^{k}x<y^{k}y=y^{k+1}}
 We've shown: \eq{x<y \implies x^n<y^n}
 \sub{$x<y \impliedby x^n<y^n$}
@@ -163,7 +183,7 @@ Let's assume it is true for $n=k$, that is:
 }
 According to our $n=k$ assumption:
 \eq{x^k\geq{y^k}}
-Therefore, because it is given that $x,y\geq{0}$, and \textit{Lemma 1}, we can show that:
+Therefore, because it is given that $x,y\geq{0}$, and \textit{Lemma 2}, we can show that:
 \eq{x^{k+1}=x^{k}x\geq y^{k}y=y^{k+1}}
 We've shown: \eq{x\geq{y} \implies x^n\geq{y^n}}
 \qed
