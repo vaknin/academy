@@ -26,7 +26,7 @@
 
 % Title Page
 \begin{titlepage}
-    %\includepdf{title.pdf}
+    \includepdf{title.pdf}
 \end{titlepage}
 
 % 4
@@ -206,10 +206,33 @@ Therefore, the solution set is:
     t_1\in{Q}
     \end{Bmatrix}
 }
+\pagebreak
 
 % 13
 \setcounter{section}{12}
 \section{Show that the equations system has a single solution iff $ad-bc\neq{0}$}
+Last week, we've shown that if $ad-bc\neq{0}$, its matrix will be of the form:
+$\begin{bmatrix}
+    1&0\\
+    0&1
+\end{bmatrix}$\\
+Therefore, the matrix will represent the \textit{identity matrix}.\\
+In the lecture, we've learned that the identity matrix only has a single solution.\\
+In this exercise specifically, that is because $X_1=B^1$, and $X_2=B^2$,\\as there aren't any free variables.
+\pagebreak
+
+% 21
+\setcounter{section}{20}
+\section{Show that matrix addition is associative}
+Let \textit{A}, \textit{B} and \textit{C} are $M_{m\times{n}}(\F)$ matrices.\\
+We need to show that:\eq{(A+B)+C=A+(B+C)}
+According to the definition of matrix addition:
+\eq{((A+B)+C)^{i}_{j}=(a^{i}_{j}+b^{i}_{j})+c^{i}_{j}}
+\eq{(A+(B+C))^{i}_{j}=a^{i}_{j}+(b^{i}_{j}+c^{i}_{j})}
+Since $a^{i}_{j},~b^{i}_{j},~c^{i}_{j}\in\F$, according to the additive associativity axiom:
+\eq{(a^{i}_{j}+b^{i}_{j})+c^{i}_{j}=a^{i}_{j}+(b^{i}_{j}+c^{i}_{j})}
+\eq{(A+B)+C=A+(B+C)}
+\qed
 
 % End Document %
 \end{document}
