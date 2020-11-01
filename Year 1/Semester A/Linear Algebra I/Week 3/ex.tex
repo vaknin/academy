@@ -146,7 +146,7 @@ First, let's convert the equations system into a matrix:
     -3&6&-13&|~0\\
     -\frac{7}{3}&2&-\frac{8}{3}&|~0
 \end{bmatrix}}
-And then find its rref:
+And then find its \textit{rref}:
 \eq{rref(A)=\begin{bmatrix}
     1&0&-\frac{5}{4}&|~0\\
     0&1&-\frac{67}{24}&|~0\\
@@ -156,10 +156,11 @@ And then find its rref:
 Therefore, we've received the following system:
 \eq{\begin{Bmatrix}
     X_1-\frac{5}{4}X_3=0\\
-    X_2-\frac{67}{24}x_3=0
+    X_2-\frac{67}{24}X_3=0
 \end{Bmatrix}}
-We'll mark $x_3$ as $t_1$, therefore:
-\eq{&x_1=\frac{5}{4}t_1\\&x_2=\frac{67}{24}t_1}
+We'll mark $X_3$ as $t_1$, therefore:
+\eq{&X_1=\frac{5}{4}t_1\\&X_2=\frac{67}{24}t_1}
+Therefore, the solution set is:
 \eq{
     \mathbb{S}
     \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
@@ -170,6 +171,45 @@ We'll mark $x_3$ as $t_1$, therefore:
     t_1\in{Q}
     \end{Bmatrix}
 }
+\pagebreak
+
+% 10
+\setcounter{section}{9}
+\section{Find all of the solutions, if there are any, $\F=Q$}
+First, let's convert the equations system into a matrix:
+\eq{A=\begin{bmatrix}
+    1&-1&2&|~1\\
+    2&0&2&|~1\\
+    1&-3&4&|~2
+\end{bmatrix}}
+And get it to its \textit{rref} form:
+\eq{\begin{bmatrix}
+    1&0&1&|~\frac{1}{2}\\
+    0&1&-1&|~-\frac{1}{2}\\
+    0&0&0&|~0
+\end{bmatrix}}
+Therefore, we've received the following system:
+\eq{\begin{Bmatrix}
+    X_1+X_3=\frac{1}{2}\\
+    X_2-X_3=-\frac{1}{2}
+\end{Bmatrix}}
+We'll mark $X_3$ as $t_1$, therefore:
+\eq{&X_1=\frac{1}{2}-t_1\\&X_2=-\frac{1}{2}+t_1}
+Therefore, the solution set is:
+\eq{
+    \mathbb{S}
+    \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+    =
+    \begin{Bmatrix}
+        \begin{bmatrix}\frac{1}{2}-t_1\\-\frac{1}{2}+t_1\\t_1\end{bmatrix}
+    :
+    t_1\in{Q}
+    \end{Bmatrix}
+}
+
+% 13
+\setcounter{section}{12}
+\section{Show that the equations system has a single solution iff $ad-bc\neq{0}$}
 
 % End Document %
 \end{document}

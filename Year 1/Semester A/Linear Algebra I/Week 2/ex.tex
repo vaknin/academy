@@ -10,6 +10,8 @@
 \newcommand{\?}{\stackrel{?}{=}}
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
 \newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
 \newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
 \newcommand{\eqn}[1]{\begin{align}#1\end{align}}
@@ -17,13 +19,14 @@
 \renewcommand{\b}[1]{\textbf{#1}}
 \renewcommand{\because}[1]{~\b{(#1)}\\}
 \renewcommand{\d}{\ensuremath{\Downarrow\\~}}
+\newtheorem{lemma}{Lemma}
 
 % Begin Document %
 \begin{document}
 
 % Title Page
 \begin{titlepage}
-    %\includepdf{title.pdf}
+    \includepdf{title.pdf}
 \end{titlepage}
 
 % 7
@@ -120,8 +123,10 @@ If we multiply the first and second equations by $(\frac{1}{2})$ and $(1)$, resp
 
 \subsub{Right-hand side system as a linear form of the other system}
 $$ X^1 - X^3 = 0 $$
-If we multiply the first and second equations by $(-1)$ and $(1)$, respectively, we'll receive the intended equation.
-\pagebreak
+If we multiply the first, second and third equations by $(-\frac{3}{4})$, $(\frac{1}{4})$ and $(0)$, respectively, we'll receive the intended equation.
+$$ X^2 + 3X^3 = 0 $$
+If we multiply the first, second and third equations by $(\frac{1}{4})$, $(\frac{1}{4})$ and $(0)$, respectively, we'll receive the intended equation.
+\qed\pagebreak
 
 % 13
 \setcounter{section}{12}
@@ -133,10 +138,7 @@ $$ 2x+2y+2z=0 $$
 $$ 3x+3y+3z=0 $$
 $$ 4x+4y+4z=0 $$
 \sub{$n=4,~m=3$}
-It exists, here's an example of such a system:
-$$ w+x+y+z=0 $$
-$$ 2w+2x+2y+2z=0 $$
-$$ 3w+3x+3y+3z=0 $$
+It doesn't exist.
 
 % 16
 \setcounter{section}{15}
@@ -227,7 +229,47 @@ Therefore, that implies that both $A$ and $C$ are row-equivalent to $B$, and the
         0&1
     \end{bmatrix}
 }
-
+Let's divide it to cases.
+\sub{$a=0$:}
+Since $ad=0$, and $ad\neq{bc}$, we can assume that $bc\neq{0}$, which results in the following matrix, because $b,c$ are scalars,
+and scalars can be changed to $1$ by performing elementary row operations on them.
+\eq{A=\begin{bmatrix}
+    0&1\\
+    1&d
+\end{bmatrix}}
+We can now divide it into even deeper cases:
+\subsub{$d=0$:}
+If that is the case, the matrix is row equivalent (or even identical) to what we were trying to prove.
+\subsub{$d\neq{0}$:}
+Because d is just another scalar that is not $0$, we can perform some row operations (such as deducting $A^1$ from $A^2$) and make it $0$, for example:
+\eq{
+    \begin{bmatrix}
+        0&1\\
+        1&d
+    \end{bmatrix}
+    \longrightarrow(A^2-A^1)\longrightarrow
+    \begin{bmatrix}
+        0&1\\
+        1&0
+    \end{bmatrix}
+}
+\sub{$a\neq{0}$:}
+\eq{A=\begin{bmatrix}
+    a&b\\
+    c&d
+\end{bmatrix}}
+Let's deduct $-\frac{a}{c}A^2$ from $A^1$, and we'll receive:
+\eq{\begin{bmatrix}
+    0&\frac{bc-ad}{c}\\
+    c&d
+\end{bmatrix}}
+If we now deduct $-\frac{dc}{bc-ad}A^1$ from $A^2$, we'll get:
+\eq{\begin{bmatrix}
+    0&\frac{bc-ad}{c}\\
+    c&0
+\end{bmatrix}}
+And from here, we can manipulate the two other scalars using elementary row operations to equal $1$, as requested.
+\qed
 
 
 % End Document %
