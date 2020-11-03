@@ -132,10 +132,91 @@ We'll multiply by \textit{(-1)}:
 }
 Note that this is exactly the definition of the infimum.
 Thus, we can conclude that \textit{-A} is bounded from below, $\exists\inf(-A)$ and that $\inf(-A)=-\sup(A)$.
-\qed
+\qed\pagebreak
 
+%5
 \section{}
+\sub{$A=\{x^2+7x+10~|~x\in\F\}$}
+First, we'll pack $x^2+7x+10$ into $(x+5)(x+2)$ and get: \eq{A=\{(x+5)(x+2)~|~x\in\F\}}
+\subsub{upper-bound, supremum \& maximum}
+Now, it is easier to see that as \textit{x} gets bigger, the equation gets bigger.\\
+According to \textit{definition 5.1}, a set is bounded from above only if: \eq{(\exists{M}\in\F)~(\forall{a}\in{A})~(a\leq{M})}
+However, there doesn't exist such an M, because for every upper bound that we'll test, the equation can yield a bigger number.\\
+Because of that, we can conclude that \textit{A} is \textbf{not} bounded from above, and therefore, there doesn't exist either a supremum nor a maximum.
+\subsub{lower-bound, infimum \& minimum}
+We can rewrite $x^2+7x+10$:
+\eq{
+    x^2+7x+10&=x^2+7x+10+2.25-2.25\\
+    &=(x+3.5)^2-2.25
+}
+We know that $(x+3.5)^2\geq{0}$, therefore:
+\eq{
+    (x+3.5)^2-2.25&\geq{-2.25}\\
+    x^2+7x+10&\geq{-2.25}
+}
+Therefore, the lowest value that can be received from the equation is $-2.25$, i.e.: \eq{inf(A)=-2.25}
+since $-2.25$ is a member of \textit{A} - as we can place $x=-3.5$ to get this value - it is the minimum as well, i.e.:
+\eq{min(A)=inf(A)=-2.25}
+\pagebreak
+\sub{$B=\{x\in\F~|~x^2+7x+10>0\}$}
+Similiar to set A, we'll pack:
+\eq{x^2+7x+10=(x+5)(x+2)}
+Therefore: \eq{B=\{x\in\F~|~(x+5)(x+2)>0\}}
+Therefore, the only members in \textit{B} are all of the \textit{x}'s that will yield positive numbers.\\
+As we've shown for \textit{A}, the members therefore are: \eq{B=\{x\in\F~|~(x<-5)\lor(-2<x)\}}
+\subsub{upper-bound, supremum \& maximum}
+As \textit{x} can be any \textit{x} that is bigger than -2, we can see that it is not bounded from above.
+Therefore, the supremum \& maximum do not exist as well.
+\subsub{lower-bound, infimum \& minimum}
+Similiarly, the value of \textit{x} can always be lower, which is in contrast to the definition of the lower-bound:
+\eq{(\exists{m}\in\F)~(\forall{b}\in{B})~(b\geq{m})}
+Let's assume that such an \textit{m} \textbf{does} exist.\\
+Let's assume that $b=m$, if we add (-1) to \textit{b}, we'll get a member that is still in the set,
+as we can always find a smaller member of \textit{B}.\\
+And in more formal notation:
+\eq{
+    &b=m\in\F\\
+    &b-1\in\F\\
+    &b-1<m
+}
+Which contradicts the definition of the lower-bound.\\
+Therefore, the lower-bound (and as a result of this the infimum and the minimum) doesn't exist.
+\pagebreak
 
+%6
+\section{}
+\sub{The lower-bound property:}
+{\Large{In \R, there exists an infimum for every non-empty set that is bounded from below.}}
+\sub{}
+\subsub{lower-bound property $\implies$ Completeness of the real numbers}
+In order to demonstrate the completeness axiom, we need to show that:
+\eq{(\forall{A,B}\subset\F)(\exists{c}\in\F)(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{b})(a\leq{c}\leq{b})}
+Let $\varnothing\neq{B}\subset\R$ that is bounded from below.\\
+According to the lower-bound property - there exists an infimum $c\in\R$ such that:
+\eq{(\forall{b}\in{B})~(c\leq{b})}
+Now, let's form a new group that contains only $\inf(B)$: \eq{A=\big\{\inf(B)\big{\}}}
+We've shown that there exists an infimum to B, hence \textit{A} must be non-empty.\\
+Therefore, we've shown what was needed.
+\subsub{lower-bound property $\impliedby$ Completeness of the real numbers}
+Using the completeness axiom, we need to show that a non-empty set, B, that is bounded-from-below, has an infimum.\\
+According to definition, in order for a set to have an infimum, M, it must fullfill:
+\begin{enumerate}
+    \item Be a lower bound of B
+    \item $(\forall\epsilon>0)(\exists{b}\in{B})(a<M+\epsilon)$
+\end{enumerate}
+%Now, we can assume the following: \eq{(\forall{A,B}\subset\F)(\exists{c}\in\F)(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{b})(a\leq{c}\leq{b})}
+%And we need to show that there exists an infimum for every non-empty set that is bounded from below.\\
+Let $B\subset\R$ some non-empty set that is bounded from below, and \textit{A}: \eq{A=\big\{x\in\R:~\forall{b}\in{B}~x\leq{b}\big{\}}}
+Since B is bounded from below, and A consists of all of the numbers that are less than or equal to all numbers in B, we can assume:
+\begin{enumerate}
+    \item $A\neq{\varnothing}$
+    \item According to the completeness axiom, there exists $c\in\R$ such that B is bounded-from-below by c and A is bounded-from-above by c.
+\end{enumerate}
+That is: \eq{\forall{a}\in{A}~a&\leq{c}\\\forall{b}\in{B}~b&\geq{c}\\b&\geq{a}}
+Therefore, we've shown that \textit{c} is the greatest lower-bound of \textit{B}.\qed
+
+%7
+\section{}
 
 
 % End
