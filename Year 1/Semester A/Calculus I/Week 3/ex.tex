@@ -23,7 +23,7 @@
 
 % Title Page
 \begin{titlepage}
-    %\includepdf{title.pdf}
+    \includepdf{title.pdf}
 \end{titlepage}
 
 %1
@@ -204,8 +204,6 @@ According to definition, in order for a set to have an infimum, M, it must fullf
     \item Be a lower bound of B
     \item $(\forall\epsilon>0)(\exists{b}\in{B})(a<M+\epsilon)$
 \end{enumerate}
-%Now, we can assume the following: \eq{(\forall{A,B}\subset\F)(\exists{c}\in\F)(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{b})(a\leq{c}\leq{b})}
-%And we need to show that there exists an infimum for every non-empty set that is bounded from below.\\
 Let $B\subset\R$ some non-empty set that is bounded from below, and \textit{A}: \eq{A=\big\{x\in\R:~\forall{b}\in{B}~x\leq{b}\big{\}}}
 Since B is bounded from below, and A consists of all of the numbers that are less than or equal to all numbers in B, we can assume:
 \begin{enumerate}
@@ -213,11 +211,45 @@ Since B is bounded from below, and A consists of all of the numbers that are les
     \item According to the completeness axiom, there exists $c\in\R$ such that B is bounded-from-below by c and A is bounded-from-above by c.
 \end{enumerate}
 That is: \eq{\forall{a}\in{A}~a&\leq{c}\\\forall{b}\in{B}~b&\geq{c}\\b&\geq{a}}
-Therefore, we've shown that \textit{c} is the greatest lower-bound of \textit{B}.\qed
+Therefore, we've shown that \textit{c} is the greatest lower-bound of \textit{B}.
+\qed
 
 %7
 \section{}
-
+Let $\varnothing\neq A,B\subset\R$ such that:
+\eqn{(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{b})}
+It is given that: \eqn{(\forall\epsilon>0)~\exists({a}\in{A},~{b}\in{B})~(b-a<\epsilon)}
+And we need to show that there \textbf{exists} a \textbf{single} $M\in\R$ such that:
+\eq{(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{M}\leq{b})}
+\sub{Existence}
+According to the completeness axiom, for all two sets that satisfy:
+\eq{(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{b})}
+There \textbf{exists} an $M\in\R$, such that:
+\eq{(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{M}\leq{b})}
+Thus, due to (1), we've shown that such an \textit{M} \textbf{exists}.
+\sub{Uniqueness}
+Now, we need to show that there exists only such a \textbf{single} \textit{M}.\\
+Let's assume that \textbf{another} $M'\in\R$ exists, such that:
+\eqn{(\forall{a}\in{A})(\forall{b}\in{B})(a\leq{M'}\leq{b})}
+As \R is an ordered field, M' must be smaller than M, equal to M, or bigger than M.\\
+Let's assume that $M'>M$, therefore, for some $\epsilon>0$:
+\eq{M'=M+\epsilon}
+From 7.1 we know that: \eq{a\leq{M}\leq{b}}
+Therefore: \eq{&a+\epsilon\leq{M+\epsilon}\\&a+\epsilon\leq{M'}}
+According to (2), we can see that there exist \textit{a,b} such that:
+\eq{
+    &b-a<\epsilon\\
+    &b<a+\epsilon
+}
+Therefore: \eq{
+    &b<a+\epsilon\leq{M'}\\
+    &b<{M'}
+}
+This contradicts what we've assumed in (3), therefore \textit{M'} cannot be bigger than \textit{M}.\\
+Symetrically, we can show that \textit{M'} cannot be smaller than \textit{M}.\\
+Therefore, we have shown that \textit{M'} must be equal to \textit{M}.\\
+Thus, we've shown that \textit{M} is \textbf{unique}.
+\qed
 
 % End
 \end{document}
