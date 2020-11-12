@@ -114,6 +114,28 @@ That is because they exist in the set, no other member in the set is smaller or 
 
 % 3
 \section{Prove \eq{sup(A)=\sqrt{2}}}
+In order to prove that $\sqrt{2}$ is the supremum of \textit{A}, we need to show:
+    \begin{enumerate}
+        \item \textit{A} is bounded from above by $\sqrt{2}$
+        \item $\sqrt{2}$ is the smallest bound from above
+    \end{enumerate}
+\sub{$\sqrt{2}$ is the upper bound of \textit{A}}
+The first part is almost immediate, as it is given that:
+\eq{
+    \forall{a}\in{A}~~a^2<2=\sqrt{2}^2
+}
+According to theorem 7.3 from class, we can say that:
+\eq{
+    a^2<\sqrt{2}^2\implies a<\sqrt{2}
+}
+Therefore, we can conclude that:
+\eq{
+    \forall{a}\in{A}~~a<\sqrt{2}
+}
+Thus, we've shown that $\sqrt{2}$ is the upper bound of \textit{A}.
+\sub{$\sqrt{2}$ is the least-upper-bound of \textit{A}}
+
+
 
 % End
 \end{document}
