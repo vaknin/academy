@@ -119,6 +119,7 @@ In order to prove that $\sqrt{2}$ is the supremum of \textit{A}, we need to show
         \item \textit{A} is bounded from above by $\sqrt{2}$
         \item $\sqrt{2}$ is the smallest bound from above
     \end{enumerate}
+% 3.1
 \sub{$\sqrt{2}$ is the upper bound of \textit{A}}
 The first part is almost immediate, as it is given that:
 \eq{
@@ -133,8 +134,178 @@ Therefore, we can conclude that:
     \forall{a}\in{A}~~a<\sqrt{2}
 }
 Thus, we've shown that $\sqrt{2}$ is the upper bound of \textit{A}.
+% 3.2
 \sub{$\sqrt{2}$ is the least-upper-bound of \textit{A}}
+In order to show that $\sqrt{2}$ is the least-upper-bound of \textit{A},
+we need to show that if we deduct \textit{any} arbitrary $\epsilon>0$ from it, the result will necessarily be a member of \textit{A}.\\
+Let's suppose that there's a smaller upper-bound \textit{M} such that for some $0<\epsilon\in{Q}$:
+\eq{
+    M=\sqrt{2}-\epsilon<\sqrt{2}
+}
+Such an $\epsilon$ exists because we've proven that the rationals are dense in \R.\\
+If we show that there exists an $a\in{A}$ such that $\sqrt{2}-\epsilon<a$, we'll show by definition that \textit{M} is not an upper-bound.
+\eq{
+    \sqrt{2},\sqrt{2}-\epsilon&>0\\
+    \sqrt{2}-\epsilon&<\sqrt{2}
+}
+Because both sides of the inequality are greater than \textit{0}, we can square both of them:
+\eq{
+    (\sqrt{2}-\epsilon)^2&<(\sqrt{2})^2\\
+    (\sqrt{2}-\epsilon)^2&<2
+}
+Every member \textit{q} of \textit{A} fulfills:
+\eq{
+q\in{Q} ~|~ (q>0) \land (q^2<2)
+}
+Therefore we've shown that $\sqrt{2}-\epsilon\in{A}$, and therefore \textbf{any} value that is lower than $\sqrt{2}$
+cannot be the least-upper-bound of \textit{A}.
+\qed\pagebreak
 
+% 4
+\section{}
+% 4.1
+\sub{$a,b\neq{0}~\land~n\in{Z} \implies (ab)^n=a^nb^n$}
+We'll prove this using induction.\\
+Because the induction is on $Z$ rather than $\N$, we'll check $n=0$ and $n=k-1$ as well.
+\subsub{$n=0$:}
+\eq{
+    (ab)^0=1=1\cdot1=a^0b^0
+}
+\subsub{$n=k$:}
+The induction assumption will be that it is true for any \textit{k}, that is:
+\eq{
+    (ab)^k=a^kb^k
+}
+\subsub{$n=k+1$:}
+We'll start with power rules:
+\eq{
+    (ab)^{k+1}=(ab)^kab
+}
+And now we'll use our assumption:
+\eq{
+    (ab)^kab&=a^kb^kab\\
+    &=a^kab^kb\\
+    &=a^{k+1}b^{k+1}
+}
+\subsub{$n=k-1$:}
+Power rules in $Z$:
+\eq{
+    (ab)^{k-1}=(ab)^k(ab)^{-1}
+}
+According to our induction assumption and some basic power rules that we've proved at (4.1):
+\eq{
+    (ab)^k(ab)^{-1}&=a^kb^k(ab)^{-1}\\
+    &=\frac{a^kb^k}{ab}\\
+    &=a^{k-1}b^{k-1}
+}
+\qed
+% 4.2
+\sub{$a,b>0~\land~r\in{Q} \implies (ab)^r=a^rb^r$}
+\eq{
+    r=\frac{k}{n} && k\in{Z} && n\in\N
+}
+We'll try to take the term $(ab)^r$ and mold it into another form:
+\eq{
+    ((ab)^r)^n&=\\
+    &=((ab)^{\frac{k}{n}})^n\\
+    &=(ab)^k\\
+    &=a^kb^k
+}
+Notice that the last step was true because $k\in{Z}$.\\
+Now, we'll do the same thing for $(a^rb^r)^n$:
+\eq{
+    (a^rb^r)^n&=\\
+    &=(a^{\frac{k}{n}}b^{\frac{k}{n}})^n\\
+    &=((a^k)^\frac{1}{n}(b^k)^\frac{1}{n})^n\\
+}
+Since $n\in\N\subset{Z}$, we can use the fact that we've just proved at (4.1).\\
+\eq{
+    ((a^k)^\frac{1}{n}(b^k)^\frac{1}{n})^n&=\\
+    &=((a^k)^\frac{1}{n})^n((b^k)^\frac{1}{n})^n\\
+    &=a^kb^k
+}
+Thus, we've shown:
+\eq{
+    ((ab)^r)^n=a^kb^k=(a^rb^r)^n
+}
+And therefore:
+\eq{
+    (ab)^r=a^rb^r
+}
+\qed
+
+\pagebreak
+% 6
+\setcounter{section}{5}
+\section{}
+\pagebreak
+
+% 7
+\section{}
+% 7.1
+\sub{}
+\eq{
+    x_1,x_2&\in\R\\
+    x_1, x_2&>0\\
+    x_1x_2&=1
+}
+Prove:
+    \eq{x_1+x_2\geq{2}}
+We'll suppose by contradiction that:
+\eq{
+    x_1+x_2<2
+}
+Therefore:
+\eq{
+    x_1+x_2-2&<0\\
+    x_1+\frac{1}{x_1}-2&<0
+}
+We'll multiply both sides of the inequality by $x_1$:
+\eq{
+    {x_1}^2-2x_1+1&<0\\
+    (x_1-1)^2<0
+}
+Any element that is squared, cannot be less than 0.\\
+Thus, we've reached a contradiction, which implies that our assumption was incorrect.
+\qed
+
+% 7.2
+\sub{}
+\subsub{Prove $1\leq{x_3}$ and $0<x_1\leq{1}$}
+Let's assume both statements are false and show that a contradiction is given.\\
+That is:
+\eq{
+    1-x_1&<0 & x_3-1&<0\\
+    1&<x_1 & x_3&<1
+}
+Therefore, due to transitivity:
+\eq{
+    x_3<1<x_1
+}
+This is a contradiction to $x_1\leq{x_3}$, hence both statements are true.\\
+Now, we'll show:
+\eq{
+    1+x_1x_3\leq{x_1+x_3}
+}
+We'll start with:
+\eq{
+    {1}&\leq{x_3}\\
+    x_1x_2x_3&\leq{x_3}\\
+}
+We'll use the fact that $x_2=\frac{1}{x_1x_3}$ (because $x_1x_2x_3=1$) and we'll divide the above by $x_2$:
+\eq{
+    \frac{x_1x_2x_3}{x_2}\leq{x_3}\cdot{x_1x_3}
+}
+Therefore, we'll get:
+\eqn{x_1x_3&\leq{x_1x_3x_3}}
+If we add 1 (or its equivalent - $x_1x_2x_3$) to both sides of (1), we'll get:
+\eqn{
+    1+x_1x_3\leq{x_1x_2x_3}+x_1x_3x_3
+}
+
+
+Later:
+\subsub{Prove $x_1+x_2+x_3\geq{3}$}
 
 
 % End
