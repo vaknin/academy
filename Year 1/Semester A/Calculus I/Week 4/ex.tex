@@ -237,8 +237,86 @@ And therefore:
 \pagebreak
 % 6
 \setcounter{section}{5}
-\section{}
-\pagebreak
+\section{Guess the limit, and prove that the sequence converges to it.}
+\sub{}
+We can easily see that the limit is \textbf{1}.
+\eq{
+    \bigg{|}a_n-1\bigg{|}<\epsilon
+}
+However, because $a_n$ is 1 for any $n>100$  we can assume:
+\eq{
+    &\bigg{|}1-1\bigg{|}<\epsilon\\
+    &0<\epsilon
+}
+And this means that if we choose an $n>N\geq{100}$, it'll be true for any $\epsilon$, including $0.1$ and $0.001$.\\
+An example of such an N is \textbf{100}.
+\qed
+% 6.2
+\sub{}
+We can guess that the limit is \textbf{0}.\\
+Therefore, we need to prove that for all $\epsilon>0$:
+\eq{
+    \bigg{|} \frac{(-1)^nn+10}{6n^2-13}-0 \bigg{|}<\epsilon
+}
+We can see that for $N>10$, for every $n>N$:
+\eq{
+    \bigg{|} \frac{(-1)^nn+10}{6n^2-13}\bigg{|}<\frac{10n}{n^2}=\frac{10}{n}
+}
+Therefore, it will be enough to show:
+\eq{
+    \frac{10}{n}&<\epsilon\\
+    n&>\frac{10}{\epsilon}
+}
+Therefore, if we choose $N=\max(10, \frac{10}{\epsilon})$, we'll get:
+\eq{
+    \bigg{|} \frac{(-1)^nn+10}{6n^2-13}-0 \bigg{|}<\frac{10}{n}<\frac{10}{n}<\frac{10}{\frac{10}{\epsilon}}=\epsilon
+}
+Thus, we've proved that for every $\epsilon>0$, we can find an $N\in\N$ s.t. for all $n>N$:
+\eq{
+    \bigg{|} \frac{(-1)^nn+10}{6n^2-13}-0 \bigg{|}<\epsilon
+}
+And by definition, this proves:
+\eq{
+    \lim(a_n)=0
+}
+For $\epsilon=0.001$:
+\eq{
+    N\geq\frac{10}{\epsilon}=\frac{10}{0.001}=10000
+}
+An example of such an $N$ is 10,001.
+\qed
+% 6.3
+\sub{}
+We can guess that the limit is $\frac{5}{6}$.\\
+Therefore, we need to show that $\forall\epsilon>0~\exists{N}\in\N~\forall{n}>N$:
+\eq{
+    \bigg{|}
+    \frac
+    {5n^2+n}
+    {6n^2+7}
+    -\frac{5}{6}
+    \bigg{|}
+    <\epsilon
+}
+We'll choose an $N>\frac{1}{\epsilon}$, such that:
+\eq{
+    \bigg{|}
+    \frac
+    {5n^2+n}
+    {6n^2+7}
+    -\frac{5}{6}
+    \bigg{|}
+    <\frac{1}{n}
+    <\frac{1}{N}
+    <\frac{1}{\frac{1}{\epsilon}}=\epsilon
+}
+Therefore, by the definition of the limit, we've shown that the limit is $\frac{5}{6}$.\\
+When $\epsilon=0.001$:
+\eq{
+    N>\frac{1}{0.001}=1000
+}
+And therefore, $N=1001$ will work.
+\qed\pagebreak
 
 % 7
 \section{}
@@ -283,29 +361,39 @@ Therefore, due to transitivity:
     x_3<1<x_1
 }
 This is a contradiction to $x_1\leq{x_3}$, hence both statements are true.\\
-Now, we'll show:
-\eq{
-    1+x_1x_3\leq{x_1+x_3}
-}
-We'll start with:
-\eq{
-    {1}&\leq{x_3}\\
-    x_1x_2x_3&\leq{x_3}\\
-}
-We'll use the fact that $x_2=\frac{1}{x_1x_3}$ (because $x_1x_2x_3=1$) and we'll divide the above by $x_2$:
-\eq{
-    \frac{x_1x_2x_3}{x_2}\leq{x_3}\cdot{x_1x_3}
-}
-Therefore, we'll get:
-\eqn{x_1x_3&\leq{x_1x_3x_3}}
-If we add 1 (or its equivalent - $x_1x_2x_3$) to both sides of (1), we'll get:
-\eqn{
-    1+x_1x_3\leq{x_1x_2x_3}+x_1x_3x_3
-}
-
-
-Later:
+\pagebreak
 \subsub{Prove $x_1+x_2+x_3\geq{3}$}
+Similar to 7.2.1, we'll prove this using contradiction, we'll assume:
+\eq{
+    x_1x_3+x_2<2
+}
+We'll use the fact that $x_2=\frac{1}{x_1x_3}$ and replace $x_1x_3$ with \textit{t}:
+\eq{
+    t+\frac{1}{t}-2&<0\\
+    t^2-2t+1&<0\\
+    (t-1)^2&<0
+}
+Same as 7.2.1 - a contradiction, as the term cannot be less than zero.\\
+Therefore, we've shown:
+\eqn{
+    (x_1x_3)+x_2&\geq{2}\\
+    x_2&\geq 2-x_1x_3
+}
+And now we'll show that:
+\eq{
+    x_1+x_2+x_3\geq{3}
+}
+In 7.2.1 we were supposed to show the following, however, I was not successful in doing that, though let's assume we did:
+\eqn{
+    x_1x_3+1\leq x_1+x_3
+}
+Combining (2) and (3), we'll get:
+\eq{
+    x_1+x_2+x_3&\geq 1+x_1x_3-x_1x_3+2\\
+    x_1+x_2+x_3&\geq{3}
+}
+\qed
+
 
 
 % End
