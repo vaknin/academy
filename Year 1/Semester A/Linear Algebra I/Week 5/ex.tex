@@ -183,8 +183,113 @@ $U_3$ is not invertible, because its rref is:
 }
 \pagebreak
 
+% 13
 \setcounter{section}{12}
+\section{Solve $AX=b$}
+\sub{}
+\eq{
+    b=b_1=\begin{bmatrix}
+        0\\1\\0\\2
+    \end{bmatrix}
+}
+$AX=b$ and therefore $X=A^{-1}b$.
+\eq{
+    A^{-1}b_1=
+    \begin{bmatrix}
+    -15\\\frac{25}{2}\\\frac{1}{2}\\\frac{3}{2}
+    \end{bmatrix}
+}
+\sub{}
+\eq{
+    A^{-1}b_2=
+    \begin{bmatrix}
+    -\frac{23}{2}\\
+    \frac{11}{2}\\
+    \frac{1}{2}\\
+    \frac{3}{2}
+    \end{bmatrix}
+}
+\sub{}
+\eq{
+    b_1+b_2=
+    \begin{bmatrix}
+        1\\2\\-1\\3
+    \end{bmatrix}
+}
+\eq{
+    A^{-1}(b_1+b_2)=
+    \begin{bmatrix}
+        -32\\18\\2\\3
+    \end{bmatrix}
+}
+\pagebreak
+
+% 14
 \section{}
+We're given that $(v_1,...,v_s)$ is the set of solutions for the homogenous system $AX=0$.\\
+That is:
+\eq{
+    \forall{v}\in{(v_1,...,v_s)}~~A\cdot{v}=0
+}
+Because of that, we can conclude that any linear combination of $(v_1,...,v_s)$ is also a solution for the homogenous system.\\
+It is true for both solution addition (i.e. $v_1+v_2$ or scalar multiplication (i.e. $v_1\cdot\lambda$), for example:
+\eq{
+    A\cdot{v_1}\cdot\lambda&=\\
+    &=(A\cdot(v_1))\cdot\lambda\\
+    &=(0)\cdot\lambda\\
+    &=0
+}
+\eq{
+    A\cdot{(v_1+v_2)}&=\\
+    &=(A\cdot{v_1})+(A\cdot{v_2})\\
+    &=0+0\\
+    &=0
+}
+\qed
+
+% 15
+\section{}
+It is given that:
+\eq{
+    S:~~&\text{solution set of}~AX=b\\
+    T:~~&\text{solution set of}~CAX=Cb
+}
+We need to show that $S\subseteq{T}$, that is, we need to show:
+\eq{
+    \forall{x\in\F_c}~~Ax=b\implies~CAx=Cb
+}
+Therefore:
+\eq{
+    CAx=C(Ax)=C(b)=Cb
+}
+\qed
+\pagebreak
+
+% 17
+\setcounter{section}{16}
+\section{$AB=I_m$}
+It is given that $AB=I_m$, therefore, by the definition of the invertible matrix we can conclude that:
+\eq{
+    B&=A^{-1}\\
+    A&=B^{-1}\\
+}
+Therefore, as both $A$ and $B$ are invertible, they are square matrices by definition, and therefore $m=n$.\\
+\sub{Prove $BX=0$ has a single solution}
+We've shown that $B$ is invertible.\\
+By definition, if a homogenous linear system is made out of an invertible matrix, then the system has exactly one solution - which is the \textbf{trivial} solution.
+\sub{Prove $m\leq{n}$}
+We've shown that $m=n$, therefore $m\leq{n}$.
+\sub{$BC=I_n$}
+As $BC=I_n$, we can conclude:
+\eq{
+    C=B^{-1}
+}
+However, we've already shown that:
+\eq{
+    A=B^{-1}
+}
+Due to the uniquness of a matrix' inverse, we can conclude that $A=C$.
+\qed
 
 % End Document %
 \end{document}
