@@ -1,0 +1,45 @@
+% Preamble
+\documentclass[a4paper, 12pt]{article}
+\usepackage[margin=1in]{geometry} % Set margin
+\usepackage{pdfpages} % Insert pdf pages
+\usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{english}
+
+% Custom commands
+\newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
+\newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\eqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\set}[1]{\big{\{} #1 \big{\}}}
+\newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
+\renewcommand{\qed}{\hfill\(\qedsymbol\)}
+
+% Begin Document %
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \includepdf{title.pdf}
+\end{titlepage}
+
+% 1
+\section{}
+\setcounter{subsection}{1}
+\sub{}
+\eq{
+    a_n=\sum^{n}_{k=1}\frac{1}{\sqrt{n^2+k}}
+}
+נחשב את גבול הסדרה באמצעות משפט הסנדוויץ'.
+
+% End
+\end{document}
