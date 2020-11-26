@@ -1,7 +1,6 @@
 % Preamble
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt, leqno]{article}
 \usepackage[margin=1in]{geometry} % Set margin
-\usepackage{pdfpages} % Insert pdf pages
 \usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
 
 % Hebrew support
@@ -23,23 +22,535 @@
 \newcommand{\set}[1]{\big{\{} #1 \big{\}}}
 \newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
 \renewcommand{\qed}{\hfill\(\qedsymbol\)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\limn}{\lim_{n\to\infty}}
 
 % Begin Document %
 \begin{document}
 
 % Title Page
 \begin{titlepage}
-    \includepdf{title.pdf}
+    \begin{center}
+        \vspace*{4cm}
+    
+        {\fontsize{35pt}{35pt}\selectfont \textbf{אינפי 1}}
+        
+        \vspace{0.4cm}
+        
+        {\LARGEתרגיל 6}
+    
+        \vfill
+            
+        {\Large\textbf{אביב וקנין}\\821710613}
+    \end{center}
 \end{titlepage}
 
-% 1
-\section{}
+% 1.2
+\section{חשבו את הגבולות של הסדרות הבאות. מותר להשתמש באריתמטיקה של גבולות ומשפט הסנדוויץ.}
 \setcounter{subsection}{1}
 \sub{}
+
 \eq{
     a_n=\sum^{n}_{k=1}\frac{1}{\sqrt{n^2+k}}
 }
-נחשב את גבול הסדרה באמצעות משפט הסנדוויץ'.
+נחשב את גבול הסדרה באמצעות משפט הסנדוויץ'.\\
+כלומר,עבור $a_n$ ו-$b_n$ מסוימים אשר קל למצוא את גבולם, נרצה להראות כי:
+\eq{
+    \forall{n}\in\N~~b_n\leq{a_n}\leq{c_n}
+}
+ומכך, נוכל להסיק כי:
+\eq{
+    \limn(a_n)=\limn(b_n)=\limn(c_n)
+}
+ראשית, קל לראות כי אם נגדיר את $b_n$ ואת $c_n$ כך:
+\eq{
+    b_n&=\frac{1}{n^2}\\
+    c_n&=\frac{1}{n}\\
+    \forall{n}\in\N~~b_n&\leq{a_n}\leq{c_n}
+}
+את גבולות סדרות $b_n$ ו-$c_n$ קל לחשב:
+\eq{
+    &\limn(b_n)=\limn(\frac{1}{n^2})=0\\
+    &\limn(c_n)=\limn(\frac{1}{n})=0
+}
+ולכן, לפי משפט הסנדוויץ':
+\eq{
+    \limn(a_n)=\limn(b_n)=\limn(c_n)=0
+}
+\qed\pagebreak
+% 1.4
+\setcounter{subsection}{3}
+\sub{}
+\eq{
+    a_n=\sqrt[n]{x^n+y^n}
+}
+מכיוון ש-$0\leq{x}\leq{y}$, ניתן לראות כי:
+\eq{
+    &\sqrt[n]{y^n}\leq\sqrt[n]{x^n+y^n}\leq \sqrt[n]{y^n+y^n}\\
+    &y\leq\sqrt[n]{x^n+y^n}\leq{y}\sqrt[n]{2}
+}
+כלומר, אם נוכיח כי הגבול של $y$ והגבול של ${y}\sqrt[n]{2}$ שווים, נוכל להניח כי זהו אמנם הגבול של $a_n$.
+כעת, נחשב את הגבולות משני צדי $a_n$:
+\eq{
+    \limn(y)&=y\\
+    \limn(\sqrt[n]{2})&=1\\
+    \limn(y\sqrt[n]{2})
+    =\limn(y)\cdot\limn(\sqrt[n]{2})
+    &=y
+}
+לכן, לפי כלל הסנדוויץ' נוכל להסיק:
+\eq{
+    \limn(a_n)=y
+}
+% 1.5
+\setcounter{subsection}{4}
+\sub{}
+\eq{
+    a_n=(0.99999+\frac{1}{n})^n
+}
+לפי אריתמטיקה של גבולות:
+\eqn{
+    \limn(0.99999)&=0.99999\nonumber\\
+    \limn(\frac{1}{n})&=0\nonumber\\
+    \limn(0.99999+\frac{1}{n})&=0.99999
+}
+ובנוסף:
+\eqn{
+    \limn((0.99999+\frac{1}{n})^n)=(\limn(0.99999+\frac{1}{n}))^n
+}
+לכן, לפי )1( ו-)2(:
+\eq{
+    \limn((0.99999+\frac{1}{n})^n)=(0.99999)^n=0
+}
+\qed\pagebreak
+
+% 2
+\setcounter{equation}{0}
+\section{הוכיחו כי הסדרות מתכנסות}
+נתון לנו כי:
+\eq{
+    b_n\leq{c_n}
+}
+לכן:
+\eqn{
+    b_n-a_n\leq{c_n-a_n}
+}
+בנוסף, נתון לנו כי:
+\eq{
+    a_n\leq b_n
+}
+ומכאן נובע:
+\eqn{
+    0\leq b_n-a_n
+}
+לכן, לפי )1( ו-)2(:
+\eqn{
+    0\leq b_n-a_n\leq{c_n-a_n}
+}
+בנוסף, אנו יודעים כי:
+\eqn{
+    \limn(0)&=0\\
+    \limn(c_n-a_n)&=0
+}
+לכן, לפי כלל הסנדוויץ' על )3(, )4( ו-)5( נוכל להסיק כי:
+\eqn{
+    \limn(b_n-a_n)=0
+}
+ידוע לנו כי:
+\eqn{
+    \limn(b_n)=L
+}
+לפי אריתמטיקה של גבולות על )6( ו-)7(:
+\eqn{
+    \limn(b_n-(b_n-a_n))&=L-0\nonumber\\
+    \limn(a_n)&=L
+}
+כעת, לפי )5( ו-)8(, נוכל להסיק לפי הלמה של קנטור:
+\eq{
+    \limn(a_n)=\limn(c_n)=L
+}
+\qed\pagebreak
+
+% 3.1
+\section{}
+\sub{הוכיחו כי הסדרה $\sqrt[n]{a_n}$ מתכנסת ל-1.}
+\setcounter{equation}{0}
+ידוע לנו כי:
+\eq{
+    0<\alpha<a_n<\beta
+}
+לכן, ניתן להסיק:
+\eqn{
+    \sqrt[n]{\alpha}<\sqrt[n]{a_n}<\sqrt[n]{\beta}
+}
+הוכח כי:
+\eqn{
+    \forall{a}>0~~\limn(\sqrt[n]{a})=1
+}
+לכן, לפי )2(:
+\eqn{
+    \limn(\sqrt[n]{\alpha})&=1\\
+    \limn(\sqrt[n]{\beta})&=1
+}
+לכן, אם נפעיל את כלל הסנדוויץ' על )1(, )3( ו-)4(, נקבל:
+\eq{
+    \limn(\sqrt[n]{a_n})=1
+}
+\qed
+% 3.2
+\sub{הוכיחו כי הסדרה $\sqrt[n]{a_n}$ מתכנסת ל-1.}
+\setcounter{equation}{0}
+ידוע לנו כי הסדרה מתכנסת ל-$L$ חיובי כלשהו, כלומר:
+\eqn{
+    \limn{a_n}=L>0
+}
+הוכחנו בכיתה, כי:
+\eqn{
+    \forall{a}>0~~\limn{\sqrt[n]{a}}=1
+}
+לכן, ע"י שילוב )1( ו-)2( נקבל:
+\eq{
+    \limn{\sqrt[n]{a_n}}=\limn{\sqrt[n]{L}}=1
+}
+\qed\pagebreak
+
+% 4.1
+\setcounter{equation}{0}
+\section{חשבו את הגבולות של הסדרות הבאות במובן \textbf{הרחב} ישירות מההגדרה}
+\sub{}
+\eq{
+    a_n=\frac{n^3-100}{n^2+20n}
+}
+בכדי להוכיח שהסדרה שואפת לאינסוף, עלינו להוכיח כי:
+\eq{
+    \forall{M>0}~~\exists{N\in\N}~~\forall{n>N}~~a_n>M
+}
+נבחר N טבעי אשר מקיים:
+\eq{
+    N>M+20
+}
+לכן, לכל $n>N$ מתקיים:
+\eq{
+    a_n>n-20>N-20>(M+20)-20=M
+}
+לכן, לפי הגדרת הגבול במובן הרחב:
+\eq{
+    \limn(a_n)=\infty
+}
+\qed
+\setcounter{subsection}{2}
+\sub{}
+\eq{
+    a_n=\lfloor\sqrt{n}\rfloor
+}
+בכדי להוכיח שהסדרה שואפת לאינסוף, עלינו להוכיח כי:
+\eq{
+    \forall{M>0}~~\exists{N\in\N}~~\forall{n>N}~~a_n>M
+}
+נתחיל מהפסוק הבא:
+\eq{
+    \lfloor\sqrt{n}\rfloor>\sqrt{n}-1
+}
+הפסוק נכון מכיוון שפונקציית הרצפה תחזיר מספר שמרחקו מערך הביטוי המקורי תמיד יהיה קטן מ-1.\\
+לכן, כאשר אנו מחסירים 1 מערך הביטוי, $a_n$ תמיד יהיה גדול יותר.\\
+לכן, נבחר:
+\eq{
+    N\geq (M+1)^2
+}
+לכן, לכל $n>N$ מתקיים:
+\eq{
+    a_n>\sqrt{n}-1>\sqrt{N}-1>M
+}
+לכן, לפי הגדרת הגבול במובן הרחב:
+\eq{
+    \limn(a_n)=\infty
+}
+\qed
+
+% 5.1
+\setcounter{equation}{0}
+\section{הוכיחו או הפריכו את הטענות הבאות:}
+\sub{}
+נרצה להוכיח כי:
+\eq{
+    \limn(a_n\cdot{b_n})=\infty
+}
+לכן, עלינו להוכיח:
+\eq{
+    \forall{M>0}~~\exists{N\in\N}~~\forall{n>N}~~a_n\cdot{b_n}>M
+}
+נתון כי $b_n$ חסומה מלרע החל ממקום מסוים ע"י מספר חיובי, כלומר:
+\eq{
+    \exists{m\in\mathbb{R}}~~\exists{N_1\in\N}~~\forall{n>N_1}~~b_n\geq{m}
+}
+בנוסף, נתון כי $a_n$ שואפת לאינסוף, לכן לפי הגדרה:
+\eqn{
+    \forall{M>0}~~\exists{N_2\in\N}~~\forall{n>N_2}~~a_n>M
+}
+לפי )1(, נוכל לבחור את $a_n$ להיות גדול יותר בפרט מ:
+\eq{
+    a_n>\frac{M}{m}
+}
+נבחר את $N$ להיות:
+\eq{
+    N=\max(N_1,N_2)
+}
+לכן, החל מהאינדקס ה-$N$'י בכל סדרה מתקיים לכל $n>N$:
+\eq{
+    a_n&>\frac{M}{m}\\
+    b_n&\geq{m}
+}
+לפי אקסיומות הסדר, ניתן להסיק כי:
+\eq{
+    a_n\cdot{b_n}&>\frac{M}{m}\cdot{m}\\
+    a_n\cdot{b_n}&>M
+}
+לפיכך, לפי הגדרת הגבול במובנו הרחב:
+\eq{
+    \limn(a_n\cdot{b_n})=\infty
+}
+\qed\pagebreak
+% 5.2
+\setcounter{equation}{0}
+\sub{}
+נרצה להוכיח כי:
+\eq{
+    \limn(a_n\cdot{b_n})=\infty
+}
+לכן, עלינו להוכיח:
+\eq{
+    \forall{M>0}~~\exists{N\in\N}~~\forall{n>N}~~a_n\cdot{b_n}>M
+}
+נתון כי $b_n$ מתכנסת ל-$L$, כלומר:
+\eq{
+    \forall\epsilon>0~~\exists{N_1}\in\N~~\forall{n}>N_1~~|b_n-L|<\epsilon
+}
+ובפרט:
+\eqn{
+    b_n>L-\epsilon
+}
+בנוסף, נתון כי $a_n$ שואפת לאינסוף, לכן לפי הגדרה:
+\eqn{
+    \forall{M>0}~~\exists{N_2\in\N}~~\forall{n>N_2}~~a_n>M
+}
+לפי )2(, נוכל לבחור את $a_n$ להיות גדול יותר בפרט מ:
+\eq{
+    a_n>\frac{M}{L-\epsilon}
+}
+נבחר את $N$ להיות:
+\eq{
+    N=\max(N_1,N_2)
+}
+לכן, החל מהאינדקס ה-$N$'י בכל סדרה מתקיים לכל $n>N$:
+\eq{
+    a_n&>\frac{M}{L-\epsilon}\\
+    b_n&>{L-\epsilon}
+}
+לפי אקסיומות הסדר, ניתן להסיק כי:
+\eq{
+    a_n\cdot{b_n}&>\frac{M}{L-\epsilon}\cdot{L-\epsilon}\\
+    a_n\cdot{b_n}&>M
+}
+לפיכך, לפי הגדרת הגבול במובנו הרחב:
+\eq{
+    \limn(a_n\cdot{b_n})=\infty
+}
+\qed\pagebreak
+% 5.3
+\setcounter{equation}{0}
+\sub{}
+נראה כי הטענה אינה נכונה.\\
+ניקח את:
+\eq{
+    a_n&=n\\
+    b_n&=\frac{(-1)^n}{n}
+}
+אמנם:
+\eq{
+    \limn{a_n}&=\infty\\
+    \limn{b_n}&=0
+}
+אך הסימן של $b_n$ לא נשאר קבוע.\\
+כלומר, כאשר אנו כופלים את $a_nb_n$ אנו מקבלים גבול מהצורה:
+\eq{
+    \limn a_nb_n=\frac{\infty}{\pm0}
+}
+ומכיוון שהסימן של המכנה אינו קבוע, לא ניתן לומר כי הסדרה מתכנסת ל$\infty$ או ל-$-\infty$.
+\qed
+
+% 6
+\pagebreak
+\section{}
+% 6א
+\sub{}
+נרצה להראות כי הסדרה מוגדרת.\\
+החשש הוא שתחת השורש יהיה ביטוי שלילי, אולם מכיוון ש-$t\geq{-2}$, הביטוי תמיד יהיה מוגדר.\\
+כעת, נרצה להראות שהסדרה \textbf{מונוטונית עולה}.\\
+כלומר, נרצה להראות כי לכל $n$ טבעי מתקיים:
+\eq{
+    a_{n+1}\geq{a_n}
+}
+נראה זאת באמצעות אינדוקציה:
+\subsub{בסיס האינדוקציה}
+\eq{
+    &a_1=t\\
+    &a_2=\sqrt{2+a_1}=\sqrt{2+t}
+}
+נניח בשלילה כי:
+\eq{
+    a_1&\geq{a_2}\\
+    t&\geq\sqrt{2+t}
+}
+מכיוון ש$t$ מוגדר להיות ערך:
+\eq{
+    -2\leq{t}\leq2
+}
+נוכל לבחור את $t$ להיות $-2$ ונקבל:
+\eq{
+    -2&\geq\sqrt{2-2}\\
+    -2&\geq0
+}
+זוהי סתירה, ולכן בסיס האינדוקציה נכון.
+\subsub{הנחת האינדוקציה}
+נניח שהביטוי הבא נכון:
+\eq{
+    a_{n+1}\geq{a_n}
+}
+\pagebreak
+\subsub{צעד האינדוקציה}
+נרצה להוכיח שהביטוי הבא נכון:
+\eq{
+    a_{n+2}\geq{a_{n+1}}
+}
+ידוע לנו כי:
+\eq{
+    a_{n+2}=\sqrt{2+a_{n+1}}\geq\sqrt{2+a_n}=a_{n+1}
+}
+ניתן לבצע את מעבר זה לפי הנחת האינדוקציה.\\
+לכן, הוכחנו כי הסדרה \textbf{מונוטונית עולה}.\\
+כעת, נרצה להראות באינדוקציה כי הסדרה \textbf{חסומה מלעיל} ע"י $2$.\\
+כלומר, כי לכל $n$ טבעי מתקיים:
+\eq{
+    a_n\leq{2}
+}
+\subsub{בסיס האינדוקציה}
+לפי הגדרת סעיף א':
+\eq{
+    a_1&=t\\
+    -2\leq{t}\leq2
+}
+\subsub{הנחת האינדוקציה}
+נניח כי:
+\eq{
+    a_n\leq2
+}
+\subsub{צעד האינדוקציה}
+נרצה להראות כי מתקיים:
+\eq{
+    a_{n+1}\leq2
+}
+לפי כלל הנסיגה של הסדרה:
+\eq{
+    a_{n+1}=\sqrt{2+a_n}
+}
+ניקח את $a_n$ להיות הערך המקסימלי שלו, כלומר - $2$:
+\eq{
+    a_{n+1}=\sqrt{2+2}=\sqrt{4}=2\leq2
+}
+וכך, הוכחנו כי הסדרה \textbf{חסומה מלעיל} ע"י $2$.
+% 6ב
+\pagebreak
+\sub{}
+הסדרה \textbf{מוגדרת} לכל $n$ טבעי מכיוון ש-$t$ הוא חיובי.\\
+לכן, אם רק נוסיף לו, או ניקח את השורש שלו, הביטוי תמיד יהיה מוגדר, מכיוון שתחת השורש לא יהיה ביטוי שלילי.\\
+נראה באמצעות אינדוקציה כי הסדרה \textbf{מונוטונית יורדת}, כלומר כי לכל $n$ טבעי מתקיים:
+\eq{
+    a_{n+1}\leq{a_n}
+}
+\subsub{בסיס האינדוקציה}
+לפי הגדרת סעיף ב':
+\eq{
+    a_1&=t>2\\
+    a_2&=\sqrt{2+t}
+}
+לכן, נרצה להראות כי מתקיים:
+\eq{
+    \sqrt{2+t}\leq{t}
+}
+מכיוון ש$t>2$, ניקח $\epsilon>0$ כך ש-$2+\epsilon=t$.\\
+מכיוון ש$\epsilon$ חיובי:
+\eq{
+    4+\epsilon<4+\epsilon+3\epsilon+\epsilon^2
+}
+לכן, ע"י לקיחת שורש לשני הצדדים החיוביים בהכרח, נוכל להראות כי:
+\eq{
+    \sqrt{2+t}=\sqrt{4+\epsilon}<2+\epsilon=t
+}
+כפי שרצינו להראות.
+\subsub{הנחת האינדוקציה}
+נניח כי:
+\eq{
+    a_{n+1}\leq{a_n}
+}
+\subsub{צעד האינדוקציה}
+נרצה להראות כי מתקיים:
+\eq{
+    a_{n+2}\leq{a_{n+1}}
+}
+לפי כלל הנסיגה של הסדרה:
+\eq{
+    a_{n+2}&=\sqrt{2+a_{n+1}}\\
+    a_{n+1}&=\sqrt{2+a_n}
+}
+לפי הנחת האינדוקציה:
+\eq{
+    \sqrt{2+a_{n+1}}\leq\sqrt{2+a_n}
+}
+וכך הראינו שהסדרה היא \textbf{מונוטונית יורדת}.
+\pagebreak\\
+כעת, נרצה להראות כי הסדרה \textbf{חסומה מלרע}, כלומר כי קיים $m$ כך שלכל $n$ טבעי:
+\eq{
+    a_n\geq{m}
+}
+נבחר את $m=2$ ונראה כי הוא חסם מלרע ע"י אינדוקציה.
+\subsub{בסיס האינדוקציה}
+לפי הגדרת סעיף ב':
+\eq{
+    a_1&=t>2=m
+}
+\subsub{הנחת האינדוקציה}
+נניח כי:
+\eq{
+    a_{n}\geq2
+}
+\subsub{צעד האינדוקציה}
+נרצה להראות כי מתקיים:
+\eq{
+    a_{n+1}\geq2
+}
+נוסיף את 2 לשני הצדדים של אי-השווין של הנחת האינדוקציה:
+\eq{
+    2+a_{n}\geq4
+}
+וכעת ניקח את השורש השני של שני הצדדים:
+\eq{
+    \sqrt{2+a_n}\geq2
+}
+לפי כלל הנסיגה של הסדרה:
+\eq{
+    a_{n+1}=\sqrt{2+a_n}\geq2
+}
+לכן, הוכחנו כי הסדרה \textbf{חסומה מלרע} ע"י $m=2$.
+% 6ג
+\sub{}
+בסעיף א' הראינו כי $a_n$ חסומה מלעיל ומונוטונית עולה.\\
+בכיתה, הוכחנו משפט המראה כי סדרה כזו מתכנסת אל הסופרמום שלה, והוא במקרה זה - $2$.\\
+מצד שני, בסעיף ב' הראינו כי $a_n$ חסומה מלרע ומונוטונית יורדת.\\
+מאותה הסיבה, סדרה זו מתכנסת אל האינפימום שלה, וגם הוא $2$.\\
+לכן, אנו יכולים להסיק מכך כי אין חשיבות לערכו של $t$, כל עוד הערך שלו גדול או שווה ל-$-2$, כלומר כך ש-$a_n$ תהיה מוגדרת.
+\qed
+
 
 % End
 \end{document}

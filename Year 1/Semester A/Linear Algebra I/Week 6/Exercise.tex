@@ -1,13 +1,17 @@
 % Preamble
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt, leqno]{article}
 \usepackage[margin=1in]{geometry} % Set margin
-\usepackage{pdfpages} % Insert pdf pages
 \usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{hebrew}
 
 % Custom commands
 \newcommand{\sub}[1]{\subsection{\underline{#1}}}
 \newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
-\newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\F}{\ensuremath{\mathbb{F}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Onef}{\ensuremath{1_{\F}}}
@@ -18,22 +22,39 @@
 \newcommand{\set}[1]{\big{\{} #1 \big{\}}}
 \newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
 \renewcommand{\qed}{\hfill\(\qedsymbol\)}
-\newtheorem{lemma}{Lemma}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\limn}{\lim_{n\to\infty}}
 
 % Begin Document %
 \begin{document}
 
 % Title Page
 \begin{titlepage}
-    \includepdf{title.pdf}
+    \begin{center}
+        \vspace*{4cm}
+    
+        {\fontsize{35pt}{35pt}\selectfont \textbf{אלגברה לינארית 1}}
+        
+        \vspace{0.4cm}
+        
+        {\LARGEתרגיל 6}
+    
+        \vfill
+            
+        {
+            \Large\textbf{אביב וקנין}
+            \\
+            \selectlanguage{english}316017128
+        }
+    \end{center}
 \end{titlepage}
 
 % 1
 \section{}
-hasse diagram thing is easy
-1-3-5-7
-2-4-6
-1->4
-2->5
+שלום עולם.
+Hello World.
 
+
+% End
 \end{document}
