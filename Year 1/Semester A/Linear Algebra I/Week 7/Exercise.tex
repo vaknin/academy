@@ -1,0 +1,297 @@
+% Preamble
+\documentclass[a4paper, 12pt, leqno]{article}
+\usepackage[margin=1in]{geometry} % Set margin
+\usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{hebrew}
+
+% Custom commands
+\newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
+\newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\eqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\set}[1]{\big{\{} #1 \big{\}}}
+\newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
+\renewcommand{\qed}{\hfill\(\qedsymbol\)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\limn}{\lim_{n\to\infty}}
+
+% Begin Document %
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+        {\fontsize{35pt}{35pt}\selectfont \textbf{אלגברה לינארית 1}}
+        \vspace{0.4cm}
+
+        {\LARGEתרגיל 7}
+        \vfill
+
+        {\Large\textbf{אביב וקנין}\\
+        \selectlanguage{english}316017128}
+    \end{center}
+\end{titlepage}
+
+% 4
+\setcounter{section}{3}
+\section{}
+נמצא את כל תתי המרחב של $\RR$.\\
+יהא $W$ תת-מרחב של $\RR$, נחלק למקרים:
+\sub{$W=0$}
+מקרה זה הוא הטריוואלי.\\
+וקטור האפס מהווה מרחב וקטורי, ולכן הוא תת-מרחב של $\RR$.
+\sub{$W\neq0$}
+מכיוון ש$W$ הינו תת מרחב, אנו יודעים כי הוא אינו ריק.\\
+לכן, נוכל להניח כי הוא מכיל לפחות איבר אחד, אשר נקרא לו $w$.\\
+מהגדרת תת-המרחב, ידוע כי:
+\eq{
+    \forall\lambda\in\RR~~\lambda{w}\in{W}
+}
+קל לראות כי ביטוי זה מבטא בעצם את כל הקומבינציות הלינאריות האפשריות ב$\RR$, או ליתר דיוק, ניתן לראות כי:
+\eq{
+    Span(W)=R
+}
+מהגדרת הפרוס הלינארי, ניתן להסיק כי:
+\eqn{
+    W\subset\RR
+}
+בנוסף, מהיות $W$ תת-מרחב של $\RR$:
+\eqn{
+    \RR\subset{W}
+}
+בשל ההכלה הדו צדדית ב)1( ו-)2(, הראינו כי:
+\eq{
+    W=\RR
+}
+כלומר, $\RR$ הוא תת-מרחב של עצמו.\\
+לכן, הראינו כי תתי-המרחב של $\RR$ הם $0$ ו-$\RR$ עצמו.
+\qed\pagebreak
+
+% 7
+\setcounter{section}{6}
+\section{?????????}
+
+\pagebreak
+% 14
+\setcounter{section}{13}
+\section{}
+$S$ תלויה לינארית.\\
+בכדי שהיא לא תהיה תלויה לינארית, אמור להיות לה פתרון יחיד למערכת ההומוגנית - והוא הפתרון הטריוויאלי.\\
+אולם, אם נדרג את המערכת לפי שורות נקבל:
+\eq{
+    \text{rref}(S)=\begin{bmatrix}
+        1 & 0 & -\frac{1}{3} & 0\\
+        0 & 1 & \frac{2}{3} & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0 
+    \end{bmatrix}
+}
+נוכל לראות בבירור כי למערכת יש משתנה חופשי, וזה מספיק בכדי לקבוע כי ל-$S$ יש פתרון לא טריוויאלי.\\
+כלומר - $S$ תלויה לינארית.
+\qed
+
+% 20
+\setcounter{section}{19}
+\section{}
+\sub{$\implies$}
+נניח כי $ad-bc\neq0$.\\
+לכן, אנו יודעים כי המטריצה הבאה הפיכה:
+\eq{
+    A=
+    \begin{bmatrix}
+        a & c\\ b & d
+    \end{bmatrix}
+}
+מכיוון ש-$A$ הפיכה, אנו יודעים כי היא שקולה לפי שורות ל-$I_2$.\\
+לכן, אנו יודעים כי הפתרון היחיד שלה למערכת ההומוגנית הוא הפתרון הטריוויאלי, ולכן,
+ניתן להסיק כי המערכת בלתי-תלויה לינארית.
+\sub{$\impliedby$}
+באופן דומה, אם נניח כי הקבוצה בלתי תלויה לינארית, נוכל להסיק מכך שאם נצרף את שני הוקטורים תחת מערכת אחת:
+\eq{
+    A=
+    \begin{bmatrix}
+        a & c\\ b & d
+    \end{bmatrix}
+}
+נקבל וקטור בלתי-תלוי לינארית, אשר שקול לפי שורות ל-I.\\
+הוכחנו בעבר כי וקטור כזה הוא הפיך, ומהיותו הפיך, ניתן להסיק כי:
+\eq{
+    \det(A)\neq{0}\implies ad-bc\neq0
+}
+\qed
+
+% 22
+\pagebreak
+\setcounter{section}{21}
+\section{}
+מכיוון ש$S$ תלוי לינארית, נוכל לחסר את $v_3$ ממנו, וכך לקבל את $S'$, וכך:
+\eq{
+    Span(S)=Span(S')
+}
+ניקח את הוקטורים $S'=\set{v_1,v_2,v_4}$ ונדרג אותם:
+\eq{
+    \text{rref}(S')=
+    \begin{bmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+    \end{bmatrix}
+}
+כלומר, הראינו כי $S'$ היא קבוצה לא תלויה לינארית של וקטורים, ולכן, היא מהווה מרחב.
+\qed
+
+% 27
+\setcounter{section}{26}
+\section{}
+\setcounter{equation}{0}
+\sub{}
+נראה כי $W_1,W_2$ הם תתי-מרחב של $V$.
+\subsub{מטריצת האפס}
+ראשית, אם נציב $a=b=c=0\in\F$ עבור שתי הקבוצות, נמצא את וקטור האפס.
+\subsub{סגירות תחת כפל סקלרי וחיבור וקטורי}
+נניח ש-$\vec{u},\vec{v}\in{W_1}$ וש-$t\in\F$.\\
+בנוסף, נניח כי $\vec{x},\vec{y}\in{W_2}$.\\
+לכן, אם נראה כי מתקיים:
+\eq{
+    t\vec{u}+\vec{v}&\in{W_1}\\
+    t\vec{x}+\vec{y}&\in{W_2}
+}
+אזי $W_1,W_2\in{V}$.\\
+נניח כי:
+\eq{
+    \vec{u}=
+    \begin{bmatrix}
+        a & -a\\
+        b & c
+    \end{bmatrix}
+    &&
+    \vec{v}=
+    \begin{bmatrix}
+        d & -d\\
+        e & f
+    \end{bmatrix}
+    \\
+    \vec{x}=
+    \begin{bmatrix}
+        a & b\\
+        -a & c
+    \end{bmatrix}
+    &&
+    \vec{y}=
+    \begin{bmatrix}
+        d & e\\
+        -d & f
+    \end{bmatrix}
+}
+לכן:
+\eq{
+    t\vec{u}+\vec{v}=c\cdot \begin{bmatrix}
+        a & -a\\
+        b & c
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        d & -d\\
+        e & f
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        ta+d & -(ta+d)\\
+        tb+e & tc+f
+    \end{bmatrix}
+}
+קל לראות כי:
+\eq{
+    t\vec{u}+\vec{v}\in{W_1}
+}
+ולכן $W_1\leq{V}$.\\
+בצורה דומה נראה עבור $W_2$:
+\eq{
+    t\vec{x}+\vec{y}=c\cdot \begin{bmatrix}
+        a & b\\
+        -a & c
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        d & e\\
+        -d & f
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        ta+d & tb+e\\
+        -(ta+d) & tc+f
+    \end{bmatrix}
+}
+לכן, אנו רואים כי:
+\eq{
+    t\vec{x}+\vec{y}\in{W_2}
+}
+ולכן $W_2\leq{V}$.\qed
+\sub{}
+עלינו להראות כי:
+\eq{
+    W_1+W_2\leq{V}
+}
+\subsub{מטריצת האפס}
+לפי א', אנו יודעים כי:
+\eq{
+    &0_{W_1}\in{W_1}\\
+    &0_{W_2}\in{W_2}
+}
+ולכן:
+\eq{
+    0_{W_1}+0_{W_2}=0\in{W_1+W_2}
+}
+\subsub{סגירות תחת כפל סקלרי וחיבור וקטורי}
+ניקח שני וקטורים השייכים לקבוצה $W_1+W_2$:
+\eq{
+    \vec{x},\vec{y}&\in{W_1+W_2}\\
+    t&\in\F
+}
+אנו רוצים להראות כי:
+\eq{
+    t\vec{x}+\vec{y}\in{W_1+W_2}
+}
+בשל הגדרת הקבוצה $W_1+W_2$ אנו יודעים כי:
+\eq{
+    \vec{x}&=u_1+u_2\\
+    \vec{y}&=v_1+v_2
+}
+כאשר:
+\eq{
+    u_1,v_1&\in{W_1}\\
+    u_2,v_2&\in{W_2}
+}
+לכן מתקיים:
+\eqn{
+    t\vec{x}+\vec{y}&=t(u_1+u_2)+v_1+v_2\\
+    &=(tu_1+v_1)+(tu_2+v_2)\nonumber
+}
+מכיוון שהראינו בסעיף א' כי הקבוצות הן תתי-מרחב, אנו יודעים כי הן סגורות תחת כפל סקלרי וחיבור וקטורי, ולכן:
+\eqn{
+    tu_1+v_1&\in{W_1}\\
+    tu_2+v_2&\in{W_2}\nonumber
+}
+לכן, לפי )1( ו-)2(, אנו רואים כי כל אחד מהאיברים שייך לאחד מתתי-המרחב, ולכן הסכום שלהם שייך לסכום של תתי-המרחבים, כלומר $W_1+W_2$.\\
+לכן, הראינו כי $W_1+W_2$ מהווה תת-מרחב וקטורי של $V$ מכיוון שהוא מכיל את מטריצת האפס והוא סגור תחת כפל וחיבור.
+\qed
+\sub{}
+
+
+
+% End
+\end{document}

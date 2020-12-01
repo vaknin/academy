@@ -33,28 +33,277 @@
 \begin{titlepage}
     \begin{center}
         \vspace*{4cm}
-    
         {\fontsize{35pt}{35pt}\selectfont \textbf{אלגברה לינארית 1}}
-        
         \vspace{0.4cm}
-        
+
         {\LARGEתרגיל 6}
-    
         \vfill
-            
-        {
-            \Large\textbf{אביב וקנין}
-            \\
-            \selectlanguage{english}316017128
-        }
+
+        {\Large\textbf{אביב וקנין}\\
+        \selectlanguage{english}316017128}
     \end{center}
 \end{titlepage}
 
-% 1
-\section{}
-שלום עולם.
-Hello World.
+% 7
+\setcounter{section}{6}
+\section{נתון מרחב וקטורי $V$ מעל שדה $F$, הוכיחו או הפריכו את הטענות הבאות:}
+\sub{}
+הטענה נכונה.\\
+ידוע כי:
+\eq{
+    a\cdot{u}+v=w
+}
+נניח כי קיים סקלר נוסף המקיים את הביטוי:
+\eq{
+    b\cdot{u}+v=w
+}
+נראה כי הם שווים זה לזה, וזה יעיד על יחידות הסקלר.
+\eq{
+    a\cdot{u}+v&=b\cdot{u}+v\\
+    a\cdot{u}&=b\cdot{u}\\
+    a&=b
+}
+אזי, קיים סקלר $a$ יחיד המקיים את הביטוי.
+\sub{}
+הטענה אינה נכונה.\\
+ניקח את:
+\eq{
+    u=\begin{bmatrix}1\\0\end{bmatrix}&&
+    v=\begin{bmatrix}0\\0\end{bmatrix}&&
+    w=\begin{bmatrix}1\\1\end{bmatrix}&&
+}
+קל לראות כי לא קיים אף $a$ המקיים:
+\eq{
+    a\cdot{u}+v=w
+}
+\sub{}
+הטענה נכונה.\\
+לשם נוחות, נסתכל על הביטוי הקונטרה-חיובי:
+\eq{
+    a\neq0~~\land~~v\neq0\implies{av}\neq0
+}
+כעת, לפי הנתון:
+\eq{
+    a\neq0
+}
+לכן, נוכל לכפול את שני צדי אי-השוויון ב$v$:
+\eq{
+    av\neq0
+}
+ובצורה דומה, נוכל להוכיח עבור $v\neq0$.
+\sub{}
+הטענה נכונה.\\
+ידוע כי:
+\eq{
+    av=v
+}
+לכן, נחסר $v$ משני צדי השוויון:
+\eq{
+    av-v&=v-v\\
+    v(a-1)&=0
+}
+לכן, האופציה היחידה לקיום 0 היא אם $v=0$ או $a=1$.
 
+% 14
+\setcounter{section}{13}
+\section{}
+\setcounter{subsection}{3}
+\sub{}
+תת-הקבוצה $W$ אינה מהווה תת-מרחב וקטורי של $V$.\\
+זאת מכיוון שהיא אינה סגורה לכפל בסקלר.\\
+ראשית, נפשט את הביטוי:
+\eq{
+    W=\bigset{\begin{bmatrix}
+        \frac{z}{2}\\2\\1
+    \end{bmatrix}
+    \big{|}~z\in\mathbb{R}
+    }
+}
+כעת, נבחר את:
+\eq{
+    \lambda&=i\in\mathbb{C}\\
+    y&=\begin{bmatrix}
+        1\\4\\2
+    \end{bmatrix}
+    \in\mathbb{W}
+}
+ונראה כי:
+\eq{
+    \lambda\cdot{y}=\begin{bmatrix}
+        i\\4i\\2i
+    \end{bmatrix}
+}
+ואולם, בכדי ש$W$ תהיה סגורה לכפל בסקלר,  יש צורך ש:
+\eq{
+    \exists{z}\in\mathbb{R}~~z\cdot{y}=\begin{bmatrix}
+        i\\4i\\2i
+    \end{bmatrix}
+}
+וכמובן, דבר זה אינו אפשרי.
+\sub{}
+תת-הקבוצה $W$ אינה מהווה תת-מרחב וקטורי של $V$.\\
+זאת מכיוון שהיא אינה סגורה לחיבור.\\
+ניקח את:
+\eq{
+    u=\begin{bmatrix}
+        1\\2\\2
+    \end{bmatrix}
+    \in\mathbb{W}
+}
+ונבצע חיבור של $u$ עם עצמו:
+\eq{
+    u+u=\begin{bmatrix}
+        1\\2\\2
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        1\\2\\2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        2\\4\\4
+    \end{bmatrix}
+    \not\in\mathbb{W}
+}
+כלומר, $u+v$ לא נמצא ב-$W$, כנדרש.
+
+% 15
+\section{}
+\setcounter{subsection}{3}
+\sub{}
+פונקצייה זו אכן מהווה תת-מרחב.\\
+ראשית, היא מכילה את פונקציית האפס:
+\eq{
+    0(-0)+0(0)=0
+}
+כעת, נראה סגירות לחיבור.\\
+
+נניח ש-$f,g$ נמצאים בקבוצה.\\
+כלומר, נרצה להראות כי מתקיים:
+\eq{
+    (f+g)(-x)+(f+g)(x)=0
+}
+נפשט את הביטוי:
+\eq{
+    (f+g)(-x)=f(-x)+g(-x)
+}
+לפי הגדרת הקבוצה:
+\eq{
+    f(-x)=-f(x)
+}
+לכן:
+\eqn{
+    f(-x)+g(-x)=-f(x)-g(x)
+}
+כעת, נעבוד על הביטוי השני:
+\eqn{
+    (f+g)(x)=f(x)+g(x)
+}
+נחבר את )1( ואת )2(:
+\eq{
+    -f(x)-g(x)+f(x)+g(x)&=\\
+    &=-f(x)+f(x)-g(x)+g(x)=\\
+    &=0
+}
+כנדרש.\\
+כעת, נראה סגירות לכפל בסקלר.\\
+נניח כי קיימת פונקציה $f$ השייכת לקבוצה, וסקלר $\lambda\in\mathbb{R}$.\\
+נרצה להראות כי:
+\eq{
+    \lambda\cdot{f}(-x)+\lambda\cdot{f}(x)=0
+}
+נשתמש בהגדרת הקבוצה:
+\eq{
+    -\lambda{f}(x)+\lambda{f}(x)=0
+}
+לכן, הקבוצה היא תת-מרחב של $V$.
+\sub{}
+הפונקצייה אכן תת-מרחב.\\
+פונקציית האפס נמצאת בה מכיוון שזוהי אכן הגדרת פונקציית האפס.\\
+כעת, נראה סגירות לחיבור.\\
+נניח כי $f, g$ נמצאות בקבוצה:
+\eq{
+    (f+g)(x)=f(x)+g(x)=0+0=0
+}
+כעת, נראה סגירות לכפל בסקלר.\\
+נניח כי $\lambda\in\mathbb{R}$:
+\eq{
+    (\lambda{f})(x)=\lambda(f(x))=\lambda(0)=0
+}
+ולכן, $\lambda{f}$ בקבוצה, ולכן הקבוצה סגורה תחת כפל סקלרי.\\
+מכאן, נוכל להניח כי הקבוצה היא אכן תת-מרחב של $V$.
+\sub{}
+הפונקצייה אינה תת-מרחב.\\
+זאת מכיוון שהיא אינה סגורה תחת חיבור.\\
+נניח כי $f,g$ שייכים לקבוצה, לכן, נרצה להראות כי:
+\eq{
+    |(f+g)(x)|\leq{1}
+}
+אולם לפי אי-שוויון ברנולי:
+\eq{
+    |(f+g)(x)|&=\\
+    &=|f(x)+g(x)|\\
+    &\leq|f(x)|+|g(x)|\\
+    &\leq{2}
+}
+לכן, ניתן להסיק כי הקבוצה אינה סגורה תחת חיבור, ולכן אינה מהווה תת-מרחב של $V$.
+
+% 26
+\setcounter{section}{25}
+\section{}
+אנו צריכים למצוא וקטור $v$ אשר יקיים:
+\eq{
+    \mathbb{R}\begin{bmatrix}1\\-1\end{bmatrix}+v=\mathbb{R}^2_{col}
+}
+כלומר, עבור $t\in\mathbb{R}$:
+\eq{
+    \begin{bmatrix}t\\-t\end{bmatrix}+v=\mathbb{R}^2_{col}
+}
+דוגמה לוקטור אשר יקיים את הביטוי היא:
+\eq{
+    \begin{bmatrix}t\\-t\end{bmatrix}+\begin{bmatrix}u\\\pi\end{bmatrix}=\mathbb{R}^2_{col}~~u\in\mathbb{R}
+}
+וקטור נוסף:
+\eq{
+    \begin{bmatrix}t\\-t\end{bmatrix}+\begin{bmatrix}42\\u\end{bmatrix}=\mathbb{R}^2_{col}~~u\in\mathbb{R}
+}
+
+
+\pagebreak
+% 31
+\setcounter{section}{30}
+\section{}
+ידוע לנו כי $\langle\set{v_1,v_2,v_3}\rangle$ הוא תת-מרחב, כלומר, הוא סגור לחיבור ולכפל סקלרי.\\
+לכן, אם נמצא קומבינציה לינארית אשר מקיימת $c_1v_1+c_2v_2+c_3v_3=w$, אזי נוכל להסיק ש-$w$ שייך לתת-המרחב.\\
+ואכן המשתנים הבאים:
+\eq{
+    c_1&=1\\
+    c_2&=-1\\
+    c_3&=1\\
+}
+יפיקו את המשוואה הבאה:
+\eq{
+    \begin{bmatrix}
+        2\\-1\\3\\2
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        -1\\1\\1\\-3
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        1\\1\\9\\-5
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        4\\-1\\11\\0
+    \end{bmatrix}
+    =w
+}
+לכן, נסיק כי:
+\eq{
+    w\in{\langle\set{v_1,v_2,v_3}\rangle}
+}
 
 % End
 \end{document}
