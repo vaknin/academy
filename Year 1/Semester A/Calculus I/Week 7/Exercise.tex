@@ -1,0 +1,313 @@
+% Preamble
+\documentclass[a4paper, 12pt, leqno]{article}
+\usepackage[margin=1in]{geometry} % Set margin
+\usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{english}
+
+% Custom commands
+\newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
+\newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\eqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\set}[1]{\big{\{} #1 \big{\}}}
+\newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
+\renewcommand{\qed}{\hfill\(\qedsymbol\)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\limn}{\lim_{n\to\infty}}
+
+% Begin Document %
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+    
+        {\fontsize{35pt}{35pt}\selectfont \textbf{אינפי 1}}
+        
+        \vspace{0.4cm}
+        
+        {\LARGEתרגיל 7}
+    
+        \vfill
+            
+        {\Large\textbf{אביב וקנין}\\821710613}
+    \end{center}
+\end{titlepage}
+
+% 1
+\section{הוכיחו או הפריכו}
+\sub{}
+הטענה נכונה.
+לפי אריתמטיקה של גבולות:
+\eq{
+    \limn{a_n+b_n}&=\limn{a_n}+\limn{b_n}\\
+    \limn{a_n}+\limn{b_n}&=\infty+\limn{b_n}\\
+    \infty+\limn{b_n}&=L\\
+    \limn{b_n}&=L-\infty=-\infty
+}
+\sub{}
+הטענה אינה נכונה.\\
+לשם דוגמה, ניקח את $a_n$ להיות:
+\eq{
+    a_n=n
+}
+וניקח את $b_n$ להיות $n^2$ עבור מספרים אי-זוגיים ו-$n^3$ עבור מספרים זוגיים, כלומר:
+\eq{
+    b_n=n^2,n^3,n^2,n^3...
+}
+אכן מתקיים:
+\eq{
+    \limn{a_n}&=\infty\\
+    \limn\frac{a_n}{b_n}&=0\in\RR
+}
+אולם, $b_n$ מתבדרת, ולכן לא מתכנסת ל-$\infty$ או ל-$-\infty$.
+\qed
+
+% 2
+\pagebreak
+\section{}
+\sub{}
+אנו רוצים להראות כי $A_n$ מתכנסת ל-$L$.\\
+ראשית, נחלק את $A_n$ לסכום של שני איברים:
+\eq{
+    A_n=\frac{a_1+a_2+...+a_N}{n}+\frac{a_{N+1}+a_{N+2}+...+a_n}{n}
+}
+\subsub{הביטוי השמאלי}
+מכיוון שנתון כי $a_n$ מתכנסת, הרי היא חסומה ע"י $M$ כלשהו, לכן, נבחר $n$ כך ש:
+\eq{
+    \frac{a_1+a_2+...+a_N}{n}<\frac{N_1\cdot{M}}{n}<\frac{L+\varepsilon}{2}
+}
+\subsub{הביטוי הימני}
+מכיוון שנתון כי $a_n$ מתכנסת ל-$L$:
+\eq{
+    \forall\varepsilon>0~\exists{N}\in\N~~\forall{n}>N~~|a_n-L|<\frac{L+\varepsilon}{2}
+}
+כעת, נוכל להראות כי:
+\eq{
+    |A_n-L|=|\frac{a_1+a_2+...+a_N}{n}+\frac{a_{N+1}+a_{N+2}+...+a_n}{n}|<\frac{L+\varepsilon}{2}+\frac{L+\varepsilon}{2}-L=\varepsilon
+}
+לכן, מהגדרת הגבול, $A_n-L$ מתכנסת ל-$L$.
+\sub{}
+הטענה אינה נכונה.\\
+ניקח את:
+\eq{
+    a_n=(-1)^n
+}
+כלומר, $a_n$ אינה מתכנסת.\\
+בנוסף:
+\eq{
+    \sum^n_{j=1}a_j=0
+}
+לכן:
+\eq{
+    A_n=\frac{1}{n}\sum^n_{j=1}a_j=0\implies\limn{A_n}=0
+}
+ניתן לראות כי $a_n$ מתבדרת ו-$A_n$ מתכנסת.
+\qed
+
+% 3
+\section{}
+\sub{}
+הטענה אינה נכונה.\\
+לשם דוגמה, ניקח את:
+\eq{
+    a_n&=n^{-1}\\
+    m_n&=2n-1
+}
+לכן, $a_n$ לא חסומה מלעיל, מכיוון שהיא שואפת בסירוגין ל-$-\infty,\infty$.\\
+ואילו $a_{m_n}$ חסומה מלעיל ע"י $0$.
+כלומר, סדרה אחת מתבדרת בעוד השנייה מתכנסת - סתירה.
+\qed
+\sub{}
+לשם פשטות, נסתכל על הצורה הקונטרה-חיובית של המשפט, ונראה כי אם $a_n$ חסומה מלעיל, אז גם $a_{m_n}$ חסומה מלעיל.\\
+ידוע לנו כי $m_n$ היא סדרה עולה ממש של אינדקסים, כלומר - מספרים טבעיים.\\
+בנוסף, ידוע כי $a_n$ חסומה מלעיל, אז:
+\eq{
+    \exists{M}\in\RR~~\forall{n}\in\N~~a_n\leq{M}
+}
+לכן, אם נשלב את שתי המסקנות, נגלה כי לא משנה מהו ערך $m_n$, ערך הסדרה $a_n$ בנקודה זו בהכרח קטן מ-$M$.
+כלומר - הסדרה חסומה מלעיל.
+\qed
+
+% 4
+\section{}
+\sub{}
+נניח כי מתקיים:
+\eq{
+    K\neq{L}
+}
+כלומר, הגבולות החלקיים של $a_n$ מתכנסים למספרים שונים, בהתאים לזוגיות או אי-זוגיות האינדקס.\\
+לפיכך, אם תתי-הסדרות של $a_n$ מתכנסות לערכים שונים, הרי שהסדרה לא יכולה להתכנס לערך יחיד, וזה נובע באופן מיידי ממשפט הירושה.\\
+כלומר - $a_n$ מתבדרת.
+\sub{}
+נניח כי מתקיים:
+\eq{
+    K={L}
+}
+לכן, בדומה לסעיף הקודם, אנו יודעים שהסדרה מקבלת גבול זהה בין אם האינדקס זוגי, ובין אם הוא אי-זוגי.\\
+כלומר, לכל אינדקס, כאשר הסדרה $a_n$ שואפת לאינסוף, גבול הסדרה הוא $L$.
+\qed
+
+% 5
+\pagebreak
+\section{}
+\sub{}
+לפי הגדרת הסדרה האינדוקטיבית:
+\eqn{
+    b_{n+1}&=\frac{1}{1+b_n}\\
+    b_{n+2}&=\frac{1}{1+b_{n+1}}
+}
+לפי )1( ו-)2( וקצת אלגברה:
+\eq{
+    b_{n+2}=\frac{1+b_n}{2+b_n}=1-\frac{1}{b_n+2}
+}
+\sub{}
+נראה בעזרת אינדוקציה כי $b_{2k-1}=c_k$ היא סדרה מונוטונית עולה, כלומר כי מתקיים:
+\eq{
+    c_{k+1}\geq{c_k}
+}
+\subsub{בסיס האינדוקציה}
+\eq{
+    c_1&=b_{1}=0\\
+    c_2&=b_{3}=\frac{1}{2}\\
+    \frac{1}{2}&\geq0
+}
+\subsub{הנחת האינדוקציה}
+נניח כי מתקיים $c_{k+1}\geq{c_k}$.
+\subsub{צעד האינדוקציה}
+נרצה להראות כי מתקיים:
+\eq{
+    c_{k+2}\geq{c_{k+1}}
+}
+לפי הגדרת הסדרה $c_k$, ידוע כי מתקיים:
+\eq{
+    c_{k}&=b_{2k-1}\\
+    c_{k+1}&=b_{2k+1}\\
+    c_{k+2}&=b_{2k+3}
+}
+בדומה לסעיף א', נבטא את $c_{k+1}$ בעזרת $c_{k}$ ואת $c_{k+2}$ בעזרת $c_{k+1}$:
+\eqn{
+    c_{k+1}&=\frac{1}{1+\frac{1}{1+c_k}}\\
+    c_{k+2}&=1-\frac{1}{c_k+2}
+}
+לפי הנחת האינדוקציה, )3( ו-)4(:
+\eq{
+    c_{k+2}\geq{c_{k+1}}
+}
+כלומר, הראינו כי הסדרה $b_{2k-1}$ מונוטונית.\\
+%%%%%%%%%%%%אינדוקציה שנייה%%%%%%%%%%%%
+נראה בעזרת אינדוקציה כי $b_{2k}=d_k$ היא סדרה מונוטונית יורדת, כלומר כי מתקיים:
+\eq{
+    d_{k+1}\leq{d_k}
+}
+\subsub{בסיס האינדוקציה}
+\eq{
+    d_1&=b_{2}=1\\
+    d_2&=b_{4}=\frac{2}{3}\\
+    \frac{2}{3}&\leq1
+}
+\subsub{הנחת האינדוקציה}
+נניח כי מתקיים $d_{k+1}\leq{d_k}$.
+\subsub{צעד האינדוקציה}
+נרצה להראות כי מתקיים:
+\eq{
+    d_{k+2}\leq{d_{k+1}}
+}
+לפי הגדרת הסדרה $d_k$, ידוע כי מתקיים:
+\eq{
+    d_{k}&=b_{2k}\\
+    d_{k+1}&=b_{2k+2}\\
+    d_{k+2}&=b_{2k+4}
+}
+בדומה לסעיף א', נראה את $d_{k+1}$ בעזרת $d_{k}$ ואת $d_{k+2}$ בעזרת $d_{k+1}$:
+\eqn{
+    d_{k+1}&=\frac{1}{1+\frac{1}{1+d_k}}\\
+    d_{k+2}&=\frac{1}{1+\frac{1}{1+d_{k+1}}}
+}
+לפי הנחת האינדוקציה, )5( ו-)6(:
+\eq{
+    d_{k+2}\leq{d_{k+1}}
+}
+כלומר, הראינו כי הסדרה $b_{2k}$ מונוטונית.
+\qed\pagebreak
+\sub{}
+נראה באינדוקציה כי $c_k$ חסומה מלעיל ע"י 1, ומכך נוכל להסיק כי היא מתכנסת.
+כלומר, אנו רוצים להראות כי:
+\eq{
+    \forall{k}\in\N~~c_k\leq1
+}
+\subsub{בסיס האינדוקציה}
+\eq{
+    c_1=b_1=0\leq1
+}
+\subsub{הנחת האינדוקציה}
+נניח כי מתקיים:
+\eq{
+    c_k\leq1
+}
+\subsub{צעד האינדוקציה}
+אנו רוצים להראות כי מתקיים:
+\eq{
+    c_{k+1}\leq1
+}
+לפי סעיף א', ניתן לבטא את $c_{k+1}$ כ:
+\eq{
+    c_{k+1}=1-\frac{1}{c_k+2}
+}
+מכיוון שהסדרה $c_k$ חסומה מלרע ע"י 0 כי היא מונוטונית עולה, הרי הביטוי במכנה בהכרח חיובי, ולכן:
+\eq{
+    1-\frac{1}{c_k+2}\leq1
+}
+כפי שרצינו להוכיח.\\
+**לא הצלחתי להראות כי $d_k$ חסומה מלרע.
+
+% 6
+\pagebreak
+\setcounter{equation}{0}
+\section{}
+\sub{$\impliedby$}
+נניח כי $a_n$ לא חסומה מלעיל.\\
+כלומר, קיימת סדרת אינדקסים כלשהי $m_n$ אשר מקיימת:
+\eq{
+    \limn{a_{m_n}}=\infty
+}
+\sub{$\implies$}
+נניח בשלילה כי הסדרה $a_n$ חסומה מלעיל, כלומר מתקיים:
+\eqn{
+    \exists{M}\in\RR~~\forall{n}\in\N~~a_n\leq{M}
+}
+בנוסף, נניח כי קיימת תת סדרה $a_{n_k}$ השואפת לאינסוף, כלומר מתקיים:
+\eqn{
+    \forall{M'}\in\RR~~\exists{n}\in\N~~a_n>M'
+}
+נשים לב כי הביטויים )1( ו-)2( מנוגדים זה לזה מבחינה לוגית.\\
+לכן, נסיק כי ההנחה שלנו הייתה שגויה, ו-$a_n$ לא חסומה מלעיל.
+\qed
+
+% 7
+\section{}
+לפי טענה 14.5 בהרצאה - תת סדרה של תת-סדרה היא תת-סדרה.\\
+לפי הנתון בתרגיל, \textbf{לכל} תת-סדרה של $a_n$ קיימת תת-סדרה המתכנסת ל-$L$.\\
+בנוסף, לפי משפט הירושה, אנו יודעים כי אם סדרה מתכנסת ל-$L$ אזי \textbf{כל} תת-סדרה שלה מתכנסת ל-$L$ גם כן.\\
+לכן, ניתן להסיק כי:
+\eq{
+    \limn{a_n}=L
+}
+\qed
+
+
+% End
+\end{document}

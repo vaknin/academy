@@ -1,0 +1,85 @@
+% Preamble
+\documentclass[a4paper, 12pt, leqno]{article}
+\usepackage[margin=1in]{geometry} % Set margin
+\usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+\usepackage{pdfpages} % Insert PDF pages
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{hebrew}
+
+% Custom commands
+\newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
+\newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\eqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\set}[1]{\big{\{} #1 \big{\}}}
+\newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
+\renewcommand{\qed}{\hfill\(\qedsymbol\)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\limn}{\lim_{n\to\infty}}
+
+% Begin Document %
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+    
+        {\fontsize{32pt}{32pt}\selectfont \textbf{מתמטיקה דיסקרטית 1}}
+        
+        \vspace{0.4cm}
+        
+        {\LARGE
+        תרגיל 7}
+    
+        \vfill
+            
+        {
+            \Large\textbf{אביב וקנין}
+            \\
+            \selectlanguage{english}316017128
+        }
+    \end{center}
+\end{titlepage}
+
+% 1
+\section{}
+נציב את:
+\eq{
+    x&=2^3\\
+    y&=(-7)
+}
+בנוסחת הבינום של ניוטון, ונקבל:
+\eq{
+    &(8-7)^n=(1)^n=1=\sum^n_{i=0}\binom{n}{i}{2^3}^{n-i}(-1)^i7^i=\\
+    &=2^3n\binom{n}{0}-7\cdot2^{3(n-1)}\binom{n}{1}+...+(-1)^n7^n\binom{n}{n}
+}
+כלומר, לפי נוסחת הבינום, הזהות מתקיימת.
+\qed
+
+% 2
+\section{}
+ניתן להסתכל על שאלה זו כלמצוא את כל הפונקציות $f$ מ-$A\backslash\set{a}$ ל-$B$ כך שהתמונה של $f$ מכילה את $B\backslash\set{b}$.\\
+נסמן:
+\eq{
+    C=\set{f:f:A\backslash\set{a}\longrightarrow{B}}
+}
+נניח כי:
+\eq{
+    B=\set{1,2,3,b}
+}
+נסמן את $C_1$ בתור
+
+
+% End
+\end{document}

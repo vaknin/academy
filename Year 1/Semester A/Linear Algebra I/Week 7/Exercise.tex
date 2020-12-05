@@ -82,7 +82,37 @@
 
 % 7
 \setcounter{section}{6}
-\section{?????????}
+\section{}
+כדי לבדוק אם שניהם שווים, נדרג את המטריצות לפי שורות, ונבדוק שוויון.
+\eq{
+    rref(T)=
+        rref(
+        \begin{bmatrix}
+            2&3&-1\\3&0&-2
+        \end{bmatrix}
+        )
+        =
+        \begin{bmatrix}
+            1&0&-\frac{2}{3}\\0&1&\frac{1}{9}
+        \end{bmatrix}
+    )
+    \\
+    rref(S)=
+        rref(
+        \begin{bmatrix}
+            1&2&3\\2&2&1
+        \end{bmatrix}
+        )
+        =
+        \begin{bmatrix}
+            1&0&-2\\0&1&\frac{5}{2}
+        \end{bmatrix}
+    )
+}
+מכיוון שהם לא שווים, ניתן להסיק כי:
+\eq{
+    Span(S)\neq{Span(T)}
+}
 
 \pagebreak
 % 14
@@ -290,8 +320,156 @@ $S$ תלויה לינארית.\\
 לכן, הראינו כי $W_1+W_2$ מהווה תת-מרחב וקטורי של $V$ מכיוון שהוא מכיל את מטריצת האפס והוא סגור תחת כפל וחיבור.
 \qed
 \sub{}
+\subsub{$W_1$}
+ניתן להציג את $W_1$ כ:
+\eq{
+    W_1=
+    a\begin{bmatrix}
+        1 & -1 \\ 0 & 0
+    \end{bmatrix}
+    +b\begin{bmatrix}
+        0 & 0 \\ 1 & 0
+    \end{bmatrix}
+    +c\begin{bmatrix}
+        0 & 0 \\ 0 & 1
+    \end{bmatrix}
+}
+לכן, הבסיס הוא:
+\eq{
+    Basis(W_1)=\bigset{
+    \begin{bmatrix}
+        1 & -1 \\ 0 & 0
+    \end{bmatrix}
+    ,\begin{bmatrix}
+        0 & 0 \\ 1 & 0
+    \end{bmatrix}
+    ,\begin{bmatrix}
+        0 & 0 \\ 0 & 1
+    \end{bmatrix}}
+}
+\subsub{$W_2$}
+ניתן להציג את $W_2$ כ:
+\eq{
+    W_2=
+    a\begin{bmatrix}
+        1 & 0 \\ -1 & 0
+    \end{bmatrix}
+    +b\begin{bmatrix}
+        0 & 1 \\ 0 & 0
+    \end{bmatrix}
+    +c\begin{bmatrix}
+        0 & 0 \\ 0 & 1
+    \end{bmatrix}
+}
+לכן, הבסיס הוא:
+\eq{
+    Basis(W_2)=\bigset{
+    \begin{bmatrix}
+        1 & 0 \\ -1 & 0
+    \end{bmatrix}
+    ,\begin{bmatrix}
+        0 & 1 \\ 0 & 0
+    \end{bmatrix}
+    ,\begin{bmatrix}
+        0 & 0 \\ 0 & 1
+    \end{bmatrix}}
+}
+\subsub{$W_1+W_2$}
+\subsub{$W_1\cap{W_2}$}
 
+% 28
+\pagebreak
+\section{}
+ראשית, נדרג את המטריצה:
+\eq{
+    R=rref(A)=
+    \begin{bmatrix}
+        1&0&1\\0&1&0\\0&0&0
+    \end{bmatrix}
+}
+\sub{מרחב השורות}
+הבסיס של מרחב השורות הוא המטריצה $R$ ללא שורת האפסים, כלומר:
+\eq{
+    Basis(R(A))=
+    \bigset{
+        \begin{bmatrix}
+            1&0&1
+        \end{bmatrix}
+        ,
+        \begin{bmatrix}
+            0&1&0
+        \end{bmatrix}
+    }
+}
+\sub{מרחב העמודות}
+ראשית, נזהה כי במטריצה $R$, עמודות הציר הינן במקומות ה-$1$ וה-$2$, לכן:
+\eq{
+    Basis(C(A))=
+    \bigset{
+        \begin{bmatrix}
+            1\\0\\1
+        \end{bmatrix}
+        ,
+        \begin{bmatrix}
+            0\\1\\1
+        \end{bmatrix}
+    }
+}
+\sub{מרחב הפתרונות}
+נציג את קבוצת הפתרונות של $R$ בצורה פרמטרית:
+\eq{
+    N(R)=\bigset{
+        \begin{bmatrix}
+            -t\\0\\t
+        \end{bmatrix}
+        |~t\in\F
+    }
+    =t\begin{bmatrix}
+        -1\\0\\1
+    \end{bmatrix}
+}
+לכן, נוכל להסיק כי בסיס מרחב הפתרונות של $N(A)$ הוא:
+\eq{
+    Basis(N(A))=\bigset{\begin{bmatrix}
+        -1\\0\\1
+    \end{bmatrix}}
+}
+\pagebreak
+\sub{אי-שוויון המרחבים}
+כעת, נרצה להראות כי שלושת המרחבים שמצאנו שונים.\\
+ראשית, ברור כי מרחב השורות שונה משני המרחבים האחרים, מכיוון שהם לא אותו סוג של וקטורים.\\
+כעת נראה כי מרחב העמודות שונה ממרחב הפתרונות.\\
+מרחב העמודות הוא קבוצת כל הצירופים הלינאריים של העמודות של הבסיס של $C(A)$,או במילים אחרות:
+\eq{
+    C(A)=span(Basis(C(A)))&=\\
+    &=\bigset{
+        c_1\begin{bmatrix}1\\0\\1\end{bmatrix}
+        +c_2\begin{bmatrix}0\\1\\1\end{bmatrix}
+        |~c_1,c_2\in\F
+    }
+}
+ננסה להשוות ביניהם:
+\eq{
+    \begin{bmatrix}
+        -1\\0\\1
+    \end{bmatrix}
+    =
+    c_1\begin{bmatrix}1\\0\\1\end{bmatrix}
+    +c_2\begin{bmatrix}0\\1\\1\end{bmatrix}
+}
+ונקבל:
+\eq{
+    -1&=c_1\\
+    0&=c_2\\
+    1&=c_1+c_2
+}
+נפתור ונקבל סתירה:
+\eq{
+    1=-1
+}
+לכן, המרחבים שונים.\qed
 
+\section{}
 
 % End
 \end{document}
