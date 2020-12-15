@@ -1,0 +1,120 @@
+% Preamble
+\documentclass[a4paper, 12pt, leqno]{article}
+\usepackage[margin=1in]{geometry} % Set margin
+\usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{hebrew}
+
+% Custom commands
+\newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
+\newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\eqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\set}[1]{\big{\{} #1 \big{\}}}
+\newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
+\renewcommand{\qed}{\hfill\(\qedsymbol\)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\limn}{\lim_{n\to\infty}}
+
+% Begin Document %
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+        {\fontsize{35pt}{35pt}\selectfont \textbf{אלגברה לינארית 1}}
+        \vspace{0.4cm}
+
+        {\LARGEבוחן}
+        \vfill
+
+        {\Large\textbf{אביב וקנין}\\
+        \selectlanguage{english}316017128}
+    \end{center}
+\end{titlepage}
+
+% 1
+\section{}
+\sub{}
+צירוף לינארי של $S$ הוא כל הקומבינציות האפשריות שניתן להגיע אליהן ע"י פעולות חיבור וקטורי וכפל בסקלר.\\
+לאחר ביצוע פעולות אלו, אנו בהכרח נישאר במרחב הוקטורי $V$, והפעולות יהיו בהכרח מוגדרות בעזרת השדה $F$.
+\sub{}
+אם תת-הקבוצה $S$ היא תת-מרחב של $V$, אזי מתקיימים התנאים הבאים:
+\begin{itemize}
+    \item $S$ מכילה את וקטור האפס, או לחילופין - $S$ היא לא קבוצה ריקה
+    \item $S$ סגורה תחת כפל סקלרי
+    \item $S$ סגורה תחת חיבור וקטורי
+\end{itemize}
+\sub{}
+ניתן לומר כי הקבוצה $S$ תלויה לינארית, אם אחד או יותר מהאיברים שלה, תלויים לינארית.\\ כלומר, אם ניתן להגיע מאיבר אחד לאיבר אחר, ע"י קומבינציה לינארית.\\
+לדוגמה, נניח כי $s_1,s_2\in{S},~c\in\F$, אז דוגמה לתלות לינארית היא אם מתקיים:
+\eq{
+    s_1=c\cdot{s_2}
+}
+\qed\pagebreak
+
+% 2
+\section{}
+נוכיח כי $W$ הינו מרחב וקטורי, לפי זה שהוא מקיים את התנאים ציינו בסעיף \textbf{1ב'}.
+\sub{וקטור האפס}
+מכיוון שכל תתי-המרחב הנמצאים בחיתוך מכילים את וקטור האפס בשל היותם תתי-מרחב, הרי גם החיתוך ביניהם מכיל את וקטור האפס.
+\eq{
+    0_v\in{W_i}~~\forall{i}~~1\leq{i}\leq15
+}
+\sub{סגירות לחיבור וקטורי ולכפל סקלרי}
+מכיוון שעכשיו הוכחנו ש$0_v$ נמצא ב-$W$, אנו יודעים כי $W$ אינה קבוצה ריקה, לכן, נניח כי:
+\eq{
+    w_1,w_2\in{W},~~c\in\F
+}
+אנו יודעים כי $w_1,w_2$ נמצאים בחיתוך של כל תתי-המרחבים, ולכן, אנו יודעים כי הם אכן מקיימים את שני התנאים האחרים של תת-מרחב, כלומר, שני הוקטורים סגורים תחת חיבור וקטורי וכפל סקלרי.\\
+לכן, אנו יכולים להסיק את הטענה הבאה:
+\eq{
+    w_1+c\cdot{w_2}\in{W}
+}
+לכן, מכיוון שהראינו שוקטור האפס נמצא ב-$W$ וגם כי האיברים בו סגורים תחת כפל סקלרי וחיבור וקטורי, ניתן להסיק כי $W$ הוא תת מרחב של $V$.
+\qed\pagebreak
+
+% 3
+\section{}
+כדי למצוא את המטריצות $P$ ו-$R$, נוסיף מימין למטריצה $A$ את מטריצת הזהות $I_3$ בתור מטריצה מורחבת, ולאחר מכן נדרג.
+לבסוף, נקבל:
+\eq{
+    \begin{bmatrix}
+    1 & 0 & 5 & 0 &|& -1 & 0 & 2\\
+    0 & 1 & 2 & 0 &|& -2 & -1 & 1\\
+    0 & 0 & 0 & 1 &|& 1 & 1 & 0
+    \end{bmatrix}
+}
+לכן, המטריצה ההפיכה $P$ היא:
+\eq{
+    P=\begin{bmatrix}
+    -1 & 0 & 2\\
+    -2 & -1 & 1\\
+    1 & 1 & 0
+    \end{bmatrix}
+}
+
+והמטריצה בצורת מדרגות מצומצמת $R$ היא:
+\eq{
+    R=\begin{bmatrix}
+        1 & 0 & 5 & 0\\
+        0 & 1 & 2 & 0\\
+        0 & 0 & 0 & 1
+    \end{bmatrix}
+}
+\qed
+
+% End
+\end{document}

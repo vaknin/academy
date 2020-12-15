@@ -15,6 +15,7 @@
 \newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
 \newcommand{\F}{\ensuremath{\mathbb{F}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
 \newcommand{\Onef}{\ensuremath{1_{\F}}}
 \newcommand{\Zerof}{\ensuremath{0_{\F}}}
 \newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
@@ -35,7 +36,7 @@
     \begin{center}
         \vspace*{4cm}
     
-        {\fontsize{32pt}{32pt}\selectfont \textbf{מתמטיקה דיסקרטית 1}}
+        {\fontsize{32pt}{32pt}\selectfont \textbf{מתמטיקה דיסקרטית}}
         
         \vspace{0.4cm}
         
@@ -54,6 +55,7 @@
 
 % 1
 \section{}
+\sub{}
 נציב את:
 \eq{
     x&=2^3\\
@@ -66,8 +68,64 @@
 }
 כלומר, לפי נוסחת הבינום, הזהות מתקיימת.
 \qed
+\sub{}
+לכל $x\in\RR$ מתקיים:
+\eq{
+    (x+1)^n=\sum_{k=0}^n\binom{n}{k}x^k
+}
+כעת, נגזור את שני הצדדים:
+\eq{
+    n(x+1)^{n-1}=\sum_{k=0}^n\binom{n}{k}kx^{k-1}
+}
+ונציב $x=2$:
+\eq{
+    n(2+1)^{n-1}=n\cdot3^{n-1}=\sum_{k=0}^n\binom{n}{k}k\cdot2^{k-1}
+}
+לאחר שנכפול ב-$2$ את שני צדי המשוואה, נקבל את הזהות.
+\qed
 
 % 2
+\section{}
+לכל $x\in\RR$ מתקיים:
+\eq{
+    (x+1)^n=\sum_{k=0}^n\binom{n}{k}x^k
+}
+כעת, נגזור את שני הצדדים:
+\eq{
+    n(x+1)^{n-1}=\sum_{k=0}^n\binom{n}{k}kx^{k-1}
+}
+נגזור שוב ונקבל:
+\eq{
+    (n-1)n(x+1)^{n-2}=\sum_{k=0}^n\binom{n}{k}(k-1)kx^{k-2}
+}
+נציב $x=1$ ונקבל את הזהות המבוקשת.
+\qed
+
+% 3
+\section{}
+לכל $x\in\RR$ מתקיים:
+\eq{
+    (x+1)^{2n}=\sum_{k=0}^n\binom{2n}{k}x^k
+}
+נציב $x=1$ ונקבל:
+\eq{
+    (1+1)^{2n}=\sum_{k=0}^n\binom{2n}{k}
+}
+נחלק ב-$2$ ונקבל את הזהות המבוקשת:
+\eq{
+    2^{2n-1}=\sum_{k=0}^n\binom{2n}{2k}
+}
+\qed
+
+% 4
+\section{}
+נציב בנוסחת ההכלה והדחה ונקבל:
+\eq{
+    28&=|A\cap{B}\cap{C}|+15+14+11-6-5-4\\
+    |A\cap{B}\cap{C}|&=3
+}
+
+% 5
 \section{}
 ניתן להסתכל על שאלה זו כלמצוא את כל הפונקציות $f$ מ-$A\backslash\set{a}$ ל-$B$ כך שהתמונה של $f$ מכילה את $B\backslash\set{b}$.\\
 נסמן:
@@ -78,7 +136,47 @@
 \eq{
     B=\set{1,2,3,b}
 }
-נסמן את $C_1$ בתור
+נציב בנוסחת ההכלה והדחה ונקבל:
+\eq{
+    |C_1\cap{C_2}\cap{C_3}|&=3\cdot3^5-3\cdot2^5+1=634
+}
+קבוצת כלל הפונקציות מחושבת ע"י:
+\eq{
+    4^5=1024
+}
+נחסר את הקבוצות ונקבל את התוצאה המבוקשת:
+\eq{
+    1024-634=390
+}
+
+% 6
+\section{}
+בכדי לחשב את מספר הדרכים, נרצה לחסר את האפשרויות ה"רעות" מכלל האפשרויות.\\
+כלל האפשרויות:
+\eq{
+    \binom{15}{6}=5005
+}
+מספר האפשרויות הרעות במתמטיקה ובמדמ"ח, כלומר בלי לבחור אותם:
+\eq{
+    |M|=|C|=\binom{9}{6}=84
+}
+מספר האפשרויות הרעות בפיזיקה:
+\eq{
+    |P|=\binom{12}{6}=924
+}
+כעת, נרצה לחשב את:
+\eq{
+    |A|-|M\cup{C}\cup{P}|
+}
+ונעשה זאת ע"י הצבה בנוסחת ההכלה והדחה:
+\eq{
+    |M\cup{C}\cup{P}|=84+84+924-1-1=1090
+}
+לכן נקבל:
+\eq{
+    |A|-|M\cup{C}\cup{P}|=5005-1090=3915
+}
+\qed
 
 
 % End

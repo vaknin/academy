@@ -1,0 +1,227 @@
+% Preamble
+\documentclass[a4paper, 12pt, leqno]{article}
+\usepackage[margin=1in]{geometry} % Set margin
+\usepackage{amssymb,amsmath,amsthm, amsfonts} % Math libraries
+\usepackage{pdfpages} % Insert PDF pages
+
+% Hebrew support
+\usepackage[utf8x]{inputenc}
+\usepackage{culmus}
+\usepackage[english,hebrew]{babel}
+\selectlanguage{hebrew}
+
+
+% Custom commands
+\newcommand{\sub}[1]{\subsection{\underline{#1}}}
+\newcommand{\subsub}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\Onef}{\ensuremath{1_{\F}}}
+\newcommand{\Zerof}{\ensuremath{0_{\F}}}
+\newcommand{\eqbcuz}[1]{\text{~$\stackrel{(#1)}{=}$~}}
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\eqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\set}[1]{\big{\{} #1 \big{\}}}
+\newcommand{\bigset}[1]{\bigg{\{} #1 \bigg{\}}}
+\newcommand{\limn}{\lim_{n\to\infty}}
+\newcommand{\sumn}{\sum^{n}_{i=1}}
+
+\renewcommand{\qed}{\hfill\(\qedsymbol\)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% Begin Document %
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+    
+        {\fontsize{32pt}{32pt}\selectfont \textbf{אינפי 1}}
+        
+        \vspace{0.4cm}
+        
+        {\LARGE
+        תרגיל 8}
+    
+        \vfill
+            
+        {
+            \Large\textbf{אביב וקנין}
+            \\
+            \selectlanguage{english}316017128
+        }
+    \end{center}
+\end{titlepage}
+
+% 1
+\section{}
+\sub{}
+נראה כי סדרת מרחקי הקטעים הסגורים $[a_n,b_n]$ מתכנסת ל-0.\\
+אנו בעצם רוצים להראות כי מתקיים:
+\eq{
+    \forall\varepsilon>0~~\exists{N}\in\N~~\forall{n}>N~~|b_n-a_n|<\varepsilon
+}
+נבחר את $N$ כך ש-$N>\frac{1}{\sqrt{\varepsilon}}$, ולכן מתקיים:
+\eq{
+    |b_n-a_n|=\frac{1}{n^2}<\frac{1}{N^2}<\frac{1}{(1\backslash\sqrt{\varepsilon})^2}=\varepsilon
+}
+לכן, מרחקי הקטעים מתכנסים ל-$0$, וסדרת הקטעים מקיימת את תנאי הלמה של קנטור.
+\sub{}
+נקרא לסדרת הקטעים מסעיף א' $c_n$ ונגדיר אותה כ:
+\eq{
+    c_n=b_n-a_n
+}
+בנוסף, הראינו כי $c_n$ מתכנסת ל-0, כלומר:
+\eq{
+    \limn{c_n}=0
+}
+לכן, מאריתמטיקה של גבולות:
+\eq{
+    &0=\limn{c_n}=\limn(b_n-a_n)=\limn{b_n}-\limn{a_n}\\
+    &\limn{a_n}=\limn{b_n}
+}
+\sub{}
+אנו צריכים למצוא $N$ ספציפי עבורו מתקיים:
+\eq{
+    |a_n-L|<\varepsilon
+}
+מסעיף ב', ידוע כי מתקיים:
+\eq{
+    \limn{a_n}=\limn{b_n}=L
+}
+ולכן זה זהה ללמצוא $N$ עבור:
+\eq{
+    |a_n-b_n|=|b_n-a_n|<\varepsilon
+}
+ולכן, אם נציב $\varepsilon=\frac{1}{100}$ בנוסחה למציאת $\varepsilon$ אשר מצאנו בסעיף א', נקבל:
+\eq{
+    N>\frac{1}{\sqrt{\varepsilon}}=\frac{1}{\sqrt{\frac{1}{100}}}=10
+}
+דוגמה ל-$N$ כזה היא 11.\qed
+
+% 2
+\section{}
+\sub{}
+\eq{
+    a_1=0 && a_3=\frac{1}{2} && a_5 = \frac{3}{4} && a_7 = \frac{7}{8} && a_9 = \frac{15}{16}\\\\
+    a_2=0 && a_4=\frac{1}{4} && a_6 = \frac{3}{8} && a_8 = \frac{7}{16} && a_{10} = \frac{15}{32}
+}
+\sub{}
+\eq{
+    &a_{2n+1}=\frac{n-2}{n-1}\\
+    &a_{2n}=\frac{\frac{2^n}{2}-1}{2^n}=\frac{2^n-2}{2^{n+1}}
+}
+\sub{}
+לסדרה יש שני גבולות חלקיים.
+\eq{
+    &\limn{a_{2n+1}}=\limn{\frac{\frac{n-2}{n}}{\frac{n-1}{n}}}=\limn{\frac{1-\frac{2}{n}}{1-\frac{1}{n}}}=1\\
+    &\limn{a_{2n}}=\limn{\frac{2^n-2}{2^{n+1}}}=\limn{\frac{\frac{2^n-2}{2^n}}{\frac{2^{n+1}}{2^n}}}=\limn{\frac{1-\frac{2}{2^n}}{2}}=\frac{1}{2}
+}
+
+% 3
+\section{}
+\sub{?}
+\sub{}
+דוגמה לסדרה מסוג זה היא:
+\eq{
+    a_n=\sqrt{n}
+}
+המרחק בין איברי הסדרה מתכנס לאפס, אולם יחד עם זאת, סדרה זו שואפת לאינסוף, ולכן אינה מתכנסת - כלומר מתבדרת.
+
+% 5
+\setcounter{section}{4}
+\section{}
+\sub{}
+בכדי להראות כי $a_n$ ניתנת לסכימה, נראה כי הטור שלה מתכנס.
+\eq{
+    &\sumn\frac{2^i}{3^i+1}<\sumn\frac{2^i}{3^i}=\sumn(\frac{2}{3})^i\\
+    &=2(1-(\frac{2}{3})^n)<2
+}
+הראינו שהטור של $a_n$ חסום מלעיל, וכעת נראה שהוא מונוטוני עולה.\\
+\eq{
+    \sum^{n+1}_{i=1}a_i=\sum^{n}_{i=1}a_i+\frac{2^{n+1}}{3^{n+1}+1}>\sum^{n}_{i=1}a_i
+}
+מכיוון שהטור של $a_n$ הוא סדרה מונוטונית עולה וגם חסומה מלעיל, ניתן להסיק כי הוא מתכנס, ולכן, $a_n$ ניתנת לסכימה.
+\sub{}
+$b_n$ לא ניתנת לסכימה.\\
+ידוע לנו כי:
+\eq{
+    \limn{\frac{1}{2n}}&=\infty\\
+    \forall{n}\in\N~~\frac{1}{2n}&\leq\frac{1}{2n-1}
+}
+לכן, לפי משפט הסנדוויץ' במובן הרחב, ניתן להסיק כי:
+\eq{
+    \limn{\frac{1}{2n-1}}=\infty
+}
+ומכיוון שהסדרה לא מתכנסת - היא לא ניתנת לסכימה.
+\sub{}
+הוכחנו בהרצאה כי:
+\eqn{
+    \limn\sqrt[n]{n}=1
+}
+לכן:
+\eq{
+    \limn{\frac{1}{\sqrt[n]{n}}}=\frac{\limn{1}}{\limn{\sqrt[n]{n}}}=\frac{1}{1}=1
+}
+כלומר, לפי אריתמטיקה של גבולות הראינו כי הסדרה $c_n$ מתכנסת ל-1.\\
+הראינו כי אם סדרה ניתנת לסכימה אזי היא מתכנסת ל-0, ולכן אם היא אינה מתכנסת ל-0, היא אינה ניתנת לסכימה, כמו במקרה זה.
+\pagebreak\sub{}
+\setcounter{equation}{0}
+מכיוון ש-$p_n$ היא סדרה של מספרים טבעיים, ניתן להניח כי:
+\eq{
+    -1\leq(-1)^{p_n}\leq1
+}
+ולכן:
+\eq{
+    g_n=-\frac{1}{n^2}\leq\frac{(-1)^{p_n}}{n^2}\leq\frac{1}{n^2}
+}
+אם נעביר אגפים, נקבל:
+\eqn{
+    0\leq\frac{(-1)^{p_n}+1}{n^2}=f_n\leq\frac{2}{n^2}=e_n
+}
+אם נראה כי $e_n$ ניתנת לסכימה, אזי גם נראה כי $f_n$ ניתנת לסכימה.\\
+ראשית, נראה כי:
+\eqn{
+    \frac{2}{k^2-k}=\frac{2k-2(k-1)}{(k-1)k}=\frac{2}{k-1}-\frac{2}{k}
+}
+כעת, נראה כי הטור של $e_n$ מתכנס, לכל $2\leq{n}\in\N$ מתקיים:
+\eq{
+    &\sum^N_{n=2}\frac{2}{n^2}<\sum^N_{n=2}\frac{2}{n^2-n}\eqbcuz{2}\sum^N_{n=2}\frac{2}{n-1}-\frac{2}{n}=\\
+    &=(\frac{2}{1}-\frac{2}{2})+(\frac{2}{2}-\frac{2}{3})+(\frac{2}{3}-\frac{2}{4})+...-\frac{2}{N-1})+(\frac{2}{N-1}-\frac{2}{N})=\\
+    &=2-\frac{2}{N}\\
+    &\sum^\infty_{n=2}\frac{2}{n^2-n}=2
+}
+לכן, ניתן להסיק כי:
+\eq{
+    \sum^\infty_{n=2}\frac{2}{n^2}<2
+}
+כלומר, הטור של $e_n$ חסום מלעיל, נראה כי הוא גם מונוטוני עולה:
+\eq{
+    \sum^{n+1}_{n=1}\frac{2}{n^2}=\sum^{n}_{n=1}\frac{2}{n^2}+\frac{2}{(n+1)^2}>\sum^{n}_{n=1}\frac{2}{n^2}
+}
+מכיוון שהטור של $e_n$ חסום מלעיל ומונוטוני עולה, הוא גם מתכנס.\\
+מכיוון ש$e_n$ ניתנת לסכימה, הרי גם $f_n$ ניתנת לסכימה, מאחר וכל איברי הסדרות אי-שליליים לפי 1.
+בנוסף, גם הסדרה $-\frac{1}{n^2}$ ניתנת לסכימה, מאחר ו:
+\eq{
+    \frac{1}{n^2}-(-\frac{1}{n^2})=\frac{2}{n^2}
+}
+בנוסף:
+\eq{
+    f_n=\frac{(-1)^{p_n}+1}{n^2}-\frac{1}{n^2}=\frac{(-1)^{p_n}}{n^2}
+}
+מכיוון שסכום סדרות ניתנות לסכימה יוצר סדרה ניתנת לסכימה, הרי קיבלנו כי:
+\eq{
+    d_n=\frac{(-1)^{p_n}}{n^2}
+}
+ניתנת לסכימה.\qed\setcounter{equation}{0}
+
+% 6
+\section{}
+\sub{}
+אי שוויון הממוצעים
+
+% End
+\end{document}
